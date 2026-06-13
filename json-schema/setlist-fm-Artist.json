@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Artist",
+  "title": "artist",
+  "description": "This class represents an artist. An artist is a musician or a group of musicians. Each artist has a definite\n<a href=\"http://wiki.musicbrainz.org/MBID\">Musicbrainz Identifier</a> (MBID) with which the artist can be uniquely\nidentified.",
+  "type": "object",
+  "properties": {
+    "mbid": {
+      "example": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+      "description": "unique Musicbrainz Identifier (MBID), e.g. <em>&quot;b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d&quot;</em>",
+      "type": "string"
+    },
+    "tmid": {
+      "example": 735610,
+      "description": "unique Ticket Master Identifier (TMID), e.g. <em>735610</em> (deprecated)",
+      "type": "number"
+    },
+    "name": {
+      "example": "The Beatles",
+      "description": "the artist's name, e.g. <em>&quot;The Beatles&quot;</em>",
+      "type": "string"
+    },
+    "sortName": {
+      "example": "Beatles, The",
+      "description": "the artist's sort name, e.g. <em>&quot;Beatles, The&quot;</em> or <em>&quot;Springsteen, Bruce&quot;</em>",
+      "type": "string"
+    },
+    "disambiguation": {
+      "example": "John, Paul, George and Ringo",
+      "description": "disambiguation to distinguish between artists with same names",
+      "type": "string"
+    },
+    "url": {
+      "example": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html",
+      "description": "the attribution url",
+      "type": "string"
+    }
+  },
+  "example": {
+    "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+    "name": "The Beatles",
+    "sortName": "Beatles, The",
+    "disambiguation": "John, Paul, George and Ringo",
+    "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+  }
+}

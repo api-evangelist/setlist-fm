@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Venues",
+  "title": "venues",
+  "description": "A Result consisting of a list of venues.",
+  "type": "object",
+  "properties": {
+    "venue": {
+      "description": "result list of venues",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_Venue"
+      }
+    },
+    "total": {
+      "example": 42,
+      "description": "the total amount of items matching the query",
+      "type": "number"
+    },
+    "page": {
+      "example": 1,
+      "description": "the current page. starts at 1",
+      "type": "number"
+    },
+    "itemsPerPage": {
+      "example": 20,
+      "description": "the amount of items you get per page",
+      "type": "number"
+    }
+  },
+  "example": {
+    "venue": [
+      {
+        "city": {
+          "id": "5357527",
+          "name": "Hollywood",
+          "stateCode": "CA",
+          "state": "California",
+          "coords": {},
+          "country": {}
+        },
+        "url": "https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html",
+        "id": "6bd6ca6e",
+        "name": "Compaq Center"
+      },
+      {
+        "city": {
+          "id": "...",
+          "name": "...",
+          "stateCode": "...",
+          "state": "...",
+          "coords": {},
+          "country": {}
+        },
+        "url": "...",
+        "id": "...",
+        "name": "..."
+      }
+    ],
+    "total": 42,
+    "page": 1,
+    "itemsPerPage": 20
+  }
+}

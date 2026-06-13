@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Countries",
+  "title": "countries",
+  "description": "A Result consisting of a list of countries.",
+  "type": "object",
+  "properties": {
+    "country": {
+      "description": "result list of countries",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_Country"
+      }
+    },
+    "total": {
+      "example": 42,
+      "description": "the total amount of items matching the query",
+      "type": "number"
+    },
+    "page": {
+      "example": 1,
+      "description": "the current page. starts at 1",
+      "type": "number"
+    },
+    "itemsPerPage": {
+      "example": 20,
+      "description": "the amount of items you get per page",
+      "type": "number"
+    }
+  },
+  "example": {
+    "country": [
+      {
+        "code": "US",
+        "name": "United States"
+      },
+      {
+        "code": "...",
+        "name": "..."
+      }
+    ],
+    "total": 42,
+    "page": 1,
+    "itemsPerPage": 20
+  }
+}

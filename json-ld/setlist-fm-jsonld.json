@@ -1,0 +1,241 @@
+{
+  "@context": {
+    "@vocab": "https://api.setlist.fm/vocab/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "mbid": {
+      "@id": "https://musicbrainz.org/doc/MusicBrainz_Identifier"
+    },
+    "name": "schema:name",
+    "sortName": "schema:alternateName",
+    "url": "schema:url",
+    "artist": "schema:performer",
+    "venue": "schema:location",
+    "eventDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:date"
+    },
+    "tour": "schema:Event",
+    "city": "schema:City",
+    "country": "schema:Country",
+    "latitude": {
+      "@id": "schema:latitude",
+      "@type": "xsd:decimal"
+    },
+    "longitude": {
+      "@id": "schema:longitude",
+      "@type": "xsd:decimal"
+    },
+    "stateCode": "schema:addressRegion",
+    "countryCode": "schema:addressCountry",
+    "userName": "schema:identifier",
+    "fullName": "schema:name",
+    "lastFm": "schema:sameAs",
+    "mySpace": "schema:sameAs",
+    "twitter": "schema:sameAs",
+    "website": "schema:url"
+  },
+  "@graph": [
+    {
+      "@id": "https://api.setlist.fm/vocab/Artist",
+      "@type": "rdfs:Class",
+      "rdfs:label": "artist",
+      "rdfs:comment": "This class represents an artist. An artist is a musician or a group of musicians. Each artist has a definite\n<a href=\"http://wiki.musicbrainz.org/MBID\">Musicbrainz Identifier</a> (MBID) with which the artist can be uniquely\nidentified.",
+      "properties": [
+        "mbid",
+        "tmid",
+        "name",
+        "sortName",
+        "disambiguation",
+        "url"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Artists",
+      "@type": "rdfs:Class",
+      "rdfs:label": "artists",
+      "rdfs:comment": "A Result consisting of a list of artists.",
+      "properties": [
+        "artist",
+        "total",
+        "page",
+        "itemsPerPage"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Cities",
+      "@type": "rdfs:Class",
+      "rdfs:label": "cities",
+      "rdfs:comment": "A Result consisting of a list of cities.",
+      "properties": [
+        "cities",
+        "total",
+        "page",
+        "itemsPerPage"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/City",
+      "@type": "rdfs:Class",
+      "rdfs:label": "city",
+      "rdfs:comment": "This class represents a city where Venues are located. Most of the original city data was taken from\n<a href=\"http://geonames.org/\">Geonames.org</a>.",
+      "properties": [
+        "id",
+        "name",
+        "stateCode",
+        "state",
+        "coords",
+        "country"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Coords",
+      "@type": "rdfs:Class",
+      "rdfs:label": "coords",
+      "rdfs:comment": "Coordinates of a point on the globe. Mostly used for Cities.",
+      "properties": [
+        "long",
+        "lat"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Countries",
+      "@type": "rdfs:Class",
+      "rdfs:label": "countries",
+      "rdfs:comment": "A Result consisting of a list of countries.",
+      "properties": [
+        "country",
+        "total",
+        "page",
+        "itemsPerPage"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Country",
+      "@type": "rdfs:Class",
+      "rdfs:label": "country",
+      "rdfs:comment": "This class represents a country on earth.",
+      "properties": [
+        "code",
+        "name"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Error",
+      "@type": "rdfs:Class",
+      "rdfs:label": "error",
+      "rdfs:comment": "Returned in case of an error.",
+      "properties": [
+        "code",
+        "status",
+        "message",
+        "timestamp"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Set",
+      "@type": "rdfs:Class",
+      "rdfs:label": "set",
+      "rdfs:comment": "A setlist consists of different (at least one) sets. Sets can either be sets as defined in the\n<a href=\"https://www.setlist.fm/guidelines\">Guidelines</a> or encores.",
+      "properties": [
+        "name",
+        "encore",
+        "song"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Setlist",
+      "@type": "rdfs:Class",
+      "rdfs:label": "setlist",
+      "rdfs:comment": "Setlists, that's what it's all about. So if you're trying to use this API without knowing what a setlist is then\nyou're kinda wrong on this page ;-).\n\nA setlist can be distinguished from other setlists by its unique id. But as\n<a href=\"https://www.setlist.fm/\">setlist.fm</a> works the wiki way, there can be different versions of one setlist\n(each time a user updates a setlist a new version gets created). These different versions have a unique id on its\nown. So setlists can have the same id although they differ as far as the content is concerned - thus the best way to\ncheck if two setlists are the same is to compare their versionIds.",
+      "properties": [
+        "artist",
+        "venue",
+        "tour",
+        "set",
+        "info",
+        "url",
+        "id",
+        "versionId",
+        "lastFmEventId",
+        "eventDate",
+        "lastUpdated"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Setlists",
+      "@type": "rdfs:Class",
+      "rdfs:label": "setlists",
+      "rdfs:comment": "A Result consisting of a list of setlists.",
+      "properties": [
+        "setlist",
+        "total",
+        "page",
+        "itemsPerPage"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Song",
+      "@type": "rdfs:Class",
+      "rdfs:label": "song",
+      "rdfs:comment": "This class represents a song that is part of a Set.",
+      "properties": [
+        "name",
+        "with",
+        "cover",
+        "info",
+        "tape"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Tour",
+      "@type": "rdfs:Class",
+      "rdfs:label": "tour",
+      "rdfs:comment": "The tour a setlist was a part of.",
+      "properties": [
+        "name"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/User",
+      "@type": "rdfs:Class",
+      "rdfs:label": "user",
+      "rdfs:comment": "This class represents a user.",
+      "properties": [
+        "userId",
+        "fullname",
+        "lastFm",
+        "mySpace",
+        "twitter",
+        "flickr",
+        "website",
+        "about",
+        "url"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Venue",
+      "@type": "rdfs:Class",
+      "rdfs:label": "venue",
+      "rdfs:comment": "Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also\nsome venues that do not have a city attached yet. In such a case, the city simply isn't set and the city and country\nmay (but do not have to) be in the name.",
+      "properties": [
+        "city",
+        "url",
+        "id",
+        "name"
+      ]
+    },
+    {
+      "@id": "https://api.setlist.fm/vocab/Venues",
+      "@type": "rdfs:Class",
+      "rdfs:label": "venues",
+      "rdfs:comment": "A Result consisting of a list of venues.",
+      "properties": [
+        "venue",
+        "total",
+        "page",
+        "itemsPerPage"
+      ]
+    }
+  ]
+}

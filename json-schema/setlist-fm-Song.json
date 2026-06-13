@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Song",
+  "title": "song",
+  "description": "This class represents a song that is part of a Set.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "example": "Yesterday",
+      "description": "The name of the song. E.g. <em>Yesterday</em> or <em>&quot;Wish You Were Here&quot;</em>",
+      "type": "string"
+    },
+    "with": {
+      "description": "A different Artist than the performing one that joined the stage for this song.",
+      "$ref": "#/definitions/json_Artist"
+    },
+    "cover": {
+      "description": "The original Artist of this song, if different to the performing artist.",
+      "$ref": "#/definitions/json_Artist"
+    },
+    "info": {
+      "description": "Special incidents or additional information about the way the song was performed at this specific concert. See\nthe <a href=\"https://www.setlist.fm/guidelines\">setlist.fm guidelines</a> for a complete list of allowed content.",
+      "type": "string"
+    },
+    "tape": {
+      "example": false,
+      "description": "The song came from tape rather than being performed live. See the\n<a href=\"https://www.setlist.fm/guidelines#tape-songs\">tape section of the guidelines</a> for valid usage.",
+      "type": "boolean"
+    }
+  },
+  "example": {
+    "name": "Yesterday",
+    "with": {
+      "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+      "name": "The Beatles",
+      "sortName": "Beatles, The",
+      "disambiguation": "John, Paul, George and Ringo",
+      "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+    },
+    "cover": {
+      "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+      "name": "The Beatles",
+      "sortName": "Beatles, The",
+      "disambiguation": "John, Paul, George and Ringo",
+      "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+    },
+    "info": "...",
+    "tape": false
+  }
+}

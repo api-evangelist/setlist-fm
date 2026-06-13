@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Artists",
+  "title": "artists",
+  "description": "A Result consisting of a list of artists.",
+  "type": "object",
+  "properties": {
+    "artist": {
+      "description": "result list of artists",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_Artist"
+      }
+    },
+    "total": {
+      "example": 42,
+      "description": "the total amount of items matching the query",
+      "type": "number"
+    },
+    "page": {
+      "example": 1,
+      "description": "the current page. starts at 1",
+      "type": "number"
+    },
+    "itemsPerPage": {
+      "example": 20,
+      "description": "the amount of items you get per page",
+      "type": "number"
+    }
+  },
+  "example": {
+    "artist": [
+      {
+        "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+        "name": "The Beatles",
+        "sortName": "Beatles, The",
+        "disambiguation": "John, Paul, George and Ringo",
+        "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+      },
+      {
+        "mbid": "...",
+        "name": "...",
+        "sortName": "...",
+        "disambiguation": "...",
+        "url": "..."
+      }
+    ],
+    "total": 42,
+    "page": 1,
+    "itemsPerPage": 20
+  }
+}

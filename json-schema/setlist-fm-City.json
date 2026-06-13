@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/City",
+  "title": "city",
+  "description": "This class represents a city where Venues are located. Most of the original city data was taken from\n<a href=\"http://geonames.org/\">Geonames.org</a>.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "example": "5357527",
+      "description": "unique identifier",
+      "type": "string"
+    },
+    "name": {
+      "example": "Hollywood",
+      "description": "the city's name, depending on the language valid values are e.g. <em>&quot;M&uuml;chen&quot;</em> or\n<em>Munich</em>",
+      "type": "string"
+    },
+    "stateCode": {
+      "example": "CA",
+      "description": "The code of the city's state. For most countries this is a two-digit numeric code, with which the state can be\nidentified uniquely in the specific Country. The code can also be a String for other cities. Valid\nexamples are <em>&quot;CA&quot;</em> or <em>&quot;02&quot;</em>\n\nwhich in turn get uniquely identifiable when combined with the state's country:\n\n<em>&quot;US.CA&quot;</em> for California, United States or <em>&quot;DE.02&quot;</em> for Bavaria, Germany\n\nFor a complete list of available states (that aren't necessarily used in this database) is available in\n<a href= \"http://download.geonames.org/export/dump/admin1CodesASCII.txt\">a textfile on geonames.org</a>.\n\nNote that this code is only unique combined with the city's Country. The code alone is\n<strong>not</strong> unique.",
+      "type": "string"
+    },
+    "state": {
+      "example": "California",
+      "description": "The name of city's state, e.g. <em>&quot;Bavaria&quot;</em> or <em>&quot;Florida&quot;</em>",
+      "type": "string"
+    },
+    "coords": {
+      "description": "The city's coordinates. Usually the coordinates of the city centre are used.",
+      "$ref": "#/definitions/json_Coords"
+    },
+    "country": {
+      "description": "The city's country.",
+      "$ref": "#/definitions/json_Country"
+    }
+  },
+  "example": {
+    "id": "5357527",
+    "name": "Hollywood",
+    "stateCode": "CA",
+    "state": "California",
+    "coords": {
+      "long": -118.3267434,
+      "lat": 34.0983425
+    },
+    "country": {
+      "code": "US",
+      "name": "United States"
+    }
+  }
+}

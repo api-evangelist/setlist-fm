@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Cities",
+  "title": "cities",
+  "description": "A Result consisting of a list of cities.",
+  "type": "object",
+  "properties": {
+    "cities": {
+      "description": "result list of cities",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_City"
+      }
+    },
+    "total": {
+      "example": 42,
+      "description": "the total amount of items matching the query",
+      "type": "number"
+    },
+    "page": {
+      "example": 1,
+      "description": "the current page. starts at 1",
+      "type": "number"
+    },
+    "itemsPerPage": {
+      "example": 20,
+      "description": "the amount of items you get per page",
+      "type": "number"
+    }
+  },
+  "example": {
+    "cities": [
+      {
+        "id": "5357527",
+        "name": "Hollywood",
+        "stateCode": "CA",
+        "state": "California",
+        "coords": {
+          "long": -118.3267434,
+          "lat": 34.0983425
+        },
+        "country": {
+          "code": "US",
+          "name": "United States"
+        }
+      },
+      {
+        "id": "...",
+        "name": "...",
+        "stateCode": "...",
+        "state": "...",
+        "coords": {
+          "long": 12345.0,
+          "lat": 12345.0
+        },
+        "country": {
+          "code": "...",
+          "name": "..."
+        }
+      }
+    ],
+    "total": 42,
+    "page": 1,
+    "itemsPerPage": 20
+  }
+}

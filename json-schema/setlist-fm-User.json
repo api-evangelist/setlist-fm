@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/User",
+  "title": "user",
+  "description": "This class represents a user.",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "",
+      "type": "string"
+    },
+    "fullname": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "lastFm": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "mySpace": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "twitter": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "flickr": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "website": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "about": {
+      "description": "never set (deprecated)",
+      "type": "string"
+    },
+    "url": {
+      "description": "",
+      "type": "string"
+    }
+  },
+  "example": {
+    "userId": "...",
+    "fullname": "...",
+    "lastFm": "...",
+    "mySpace": "...",
+    "twitter": "...",
+    "flickr": "...",
+    "website": "...",
+    "about": "...",
+    "url": "..."
+  }
+}

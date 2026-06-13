@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Venue",
+  "title": "venue",
+  "description": "Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also\nsome venues that do not have a city attached yet. In such a case, the city simply isn't set and the city and country\nmay (but do not have to) be in the name.",
+  "type": "object",
+  "properties": {
+    "city": {
+      "description": "the city in which the venue is located",
+      "$ref": "#/definitions/json_City"
+    },
+    "url": {
+      "example": "https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html",
+      "description": "the attribution url",
+      "type": "string"
+    },
+    "id": {
+      "example": "6bd6ca6e",
+      "description": "unique identifier",
+      "type": "string"
+    },
+    "name": {
+      "example": "Compaq Center",
+      "description": "the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or\n<em>&quot;Royal Albert Hall&quot;</em>",
+      "type": "string"
+    }
+  },
+  "example": {
+    "city": {
+      "id": "5357527",
+      "name": "Hollywood",
+      "stateCode": "CA",
+      "state": "California",
+      "coords": {
+        "long": -118.3267434,
+        "lat": 34.0983425
+      },
+      "country": {
+        "code": "US",
+        "name": "United States"
+      }
+    },
+    "url": "https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html",
+    "id": "6bd6ca6e",
+    "name": "Compaq Center"
+  }
+}

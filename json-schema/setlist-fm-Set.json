@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Set",
+  "title": "set",
+  "description": "A setlist consists of different (at least one) sets. Sets can either be sets as defined in the\n<a href=\"https://www.setlist.fm/guidelines\">Guidelines</a> or encores.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "the description/name of the set. E.g. <em>&quot;Acoustic set&quot;</em> or <em>&quot;Paul McCartney\nsolo&quot;</em>",
+      "type": "string"
+    },
+    "encore": {
+      "description": "if the set is an encore, this is the number of the encore, starting with 1 for the first encore, 2 for the second\nand so on.",
+      "type": "number"
+    },
+    "song": {
+      "description": "this set's songs",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_Song"
+      }
+    }
+  },
+  "example": {
+    "name": "...",
+    "encore": 12345,
+    "song": [
+      {
+        "name": "Yesterday",
+        "with": {
+          "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+          "name": "The Beatles",
+          "sortName": "Beatles, The",
+          "disambiguation": "John, Paul, George and Ringo",
+          "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+        },
+        "cover": {
+          "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+          "name": "The Beatles",
+          "sortName": "Beatles, The",
+          "disambiguation": "John, Paul, George and Ringo",
+          "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+        },
+        "info": "...",
+        "tape": false
+      },
+      {
+        "name": "...",
+        "with": {
+          "mbid": "...",
+          "name": "...",
+          "sortName": "...",
+          "disambiguation": "...",
+          "url": "..."
+        },
+        "cover": {
+          "mbid": "...",
+          "name": "...",
+          "sortName": "...",
+          "disambiguation": "...",
+          "url": "..."
+        },
+        "info": "...",
+        "tape": true
+      }
+    ]
+  }
+}

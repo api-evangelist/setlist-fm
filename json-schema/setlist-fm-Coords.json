@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Coords",
+  "title": "coords",
+  "description": "Coordinates of a point on the globe. Mostly used for Cities.",
+  "type": "object",
+  "properties": {
+    "long": {
+      "example": -118.3267434,
+      "description": "The longitude part of the coordinates.",
+      "type": "number"
+    },
+    "lat": {
+      "example": 34.0983425,
+      "description": "The latitude part of the coordinates.",
+      "type": "number"
+    }
+  },
+  "example": {
+    "long": -118.3267434,
+    "lat": 34.0983425
+  }
+}

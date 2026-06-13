@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Error",
+  "title": "error",
+  "description": "Returned in case of an error.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "example": 404,
+      "description": "the HTTP status code",
+      "type": "number"
+    },
+    "status": {
+      "example": "Not Found",
+      "description": "the HTTP status message",
+      "type": "string"
+    },
+    "message": {
+      "example": "unknown mbid",
+      "description": "an additional error message",
+      "type": "string"
+    },
+    "timestamp": {
+      "example": "2016-12-08T17:52:48.817+0000",
+      "description": "current timestamp",
+      "type": "string"
+    }
+  },
+  "example": {
+    "code": 404,
+    "status": "Not Found",
+    "message": "unknown mbid",
+    "timestamp": "2016-12-08T17:52:48.817+0000"
+  }
+}

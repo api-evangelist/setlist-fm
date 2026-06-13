@@ -1,0 +1,213 @@
+[
+  {
+    "name": ".",
+    "path": "/1.0/artist/{mbid}",
+    "method": "GET",
+    "parameters": {
+      "mbid": "<mbid>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": ".",
+    "path": "/1.0/artist/{mbid}/setlists",
+    "method": "GET",
+    "parameters": {
+      "mbid": "<mbid>",
+      "p": "1"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Get a city by its unique geoId.",
+    "path": "/1.0/city/{geoId}",
+    "method": "GET",
+    "parameters": {
+      "geoId": "<geoId>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Search for artists.",
+    "path": "/1.0/search/artists",
+    "method": "GET",
+    "parameters": {
+      "artistMbid": "<artistMbid>",
+      "artistName": "<artistName>",
+      "artistTmid": "<artistTmid>",
+      "p": "1",
+      "sort": "sortName"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Search for a city.",
+    "path": "/1.0/search/cities",
+    "method": "GET",
+    "parameters": {
+      "country": "<country>",
+      "name": "<name>",
+      "p": "1",
+      "state": "<state>",
+      "stateCode": "<stateCode>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Get a complete list of all supported countries.",
+    "path": "/1.0/search/countries",
+    "method": "GET",
+    "parameters": {},
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Search for setlists.",
+    "path": "/1.0/search/setlists",
+    "method": "GET",
+    "parameters": {
+      "artistMbid": "<artistMbid>",
+      "artistName": "<artistName>",
+      "artistTmid": "<artistTmid>",
+      "cityId": "<cityId>",
+      "cityName": "<cityName>",
+      "countryCode": "<countryCode>",
+      "date": "<date>",
+      "lastFm": "<lastFm>",
+      "lastUpdated": "<lastUpdated>",
+      "p": "1",
+      "state": "<state>",
+      "stateCode": "<stateCode>",
+      "tourName": "<tourName>",
+      "venueId": "<venueId>",
+      "venueName": "<venueName>",
+      "year": "<year>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Search for venues.",
+    "path": "/1.0/search/venues",
+    "method": "GET",
+    "parameters": {
+      "cityId": "<cityId>",
+      "cityName": "<cityName>",
+      "country": "<country>",
+      "name": "<name>",
+      "p": "1",
+      "state": "<state>",
+      "stateCode": "<stateCode>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": ".",
+    "path": "/1.0/setlist/version/{versionId}",
+    "method": "GET",
+    "parameters": {
+      "versionId": "<versionId>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": ".",
+    "path": "/1.0/setlist/{setlistId}",
+    "method": "GET",
+    "parameters": {
+      "setlistId": "<setlistId>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Get a user by userId.",
+    "path": "/1.0/user/{userId}",
+    "method": "GET",
+    "parameters": {
+      "userId": "<userId>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": ".",
+    "path": "/1.0/user/{userId}/attended",
+    "method": "GET",
+    "parameters": {
+      "userId": "<userId>",
+      "p": "1"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": ".",
+    "path": "/1.0/user/{userId}/edited",
+    "method": "GET",
+    "parameters": {
+      "userId": "<userId>",
+      "p": "1"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": "Get a venue by its unique id.",
+    "path": "/1.0/venue/{venueId}",
+    "method": "GET",
+    "parameters": {
+      "venueId": "<venueId>"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  },
+  {
+    "name": ".",
+    "path": "/1.0/venue/{venueId}/setlists",
+    "method": "GET",
+    "parameters": {
+      "venueId": "<venueId>",
+      "p": "1"
+    },
+    "headers": {
+      "Accept": "application/json",
+      "x-api-key": "YOUR_API_KEY"
+    }
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Country",
+  "title": "country",
+  "description": "This class represents a country on earth.",
+  "type": "object",
+  "properties": {
+    "code": {
+      "example": "US",
+      "description": "The country's <a href= \"http://www.iso.org/iso/english_country_names_and_code_elements\" >ISO code</a>. E.g.\n<em>&quot;ie&quot;</em> for Ireland",
+      "type": "string"
+    },
+    "name": {
+      "example": "United States",
+      "description": "The country's name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or\n<em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.",
+      "type": "string"
+    }
+  },
+  "example": {
+    "code": "US",
+    "name": "United States"
+  }
+}

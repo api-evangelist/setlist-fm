@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.setlist.fm/schema/Setlist",
+  "title": "setlist",
+  "description": "Setlists, that's what it's all about. So if you're trying to use this API without knowing what a setlist is then\nyou're kinda wrong on this page ;-).\n\nA setlist can be distinguished from other setlists by its unique id. But as\n<a href=\"https://www.setlist.fm/\">setlist.fm</a> works the wiki way, there can be different versions of one setlist\n(each time a user updates a setlist a new version gets created). These different versions have a unique id on its\nown. So setlists can have the same id although they differ as far as the content is concerned - thus the best way to\ncheck if two setlists are the same is to compare their versionIds.",
+  "type": "object",
+  "properties": {
+    "artist": {
+      "description": "the setlist's artist",
+      "$ref": "#/definitions/json_Artist"
+    },
+    "venue": {
+      "description": "the setlist's venue",
+      "$ref": "#/definitions/json_Venue"
+    },
+    "tour": {
+      "description": "the setlist's tour",
+      "$ref": "#/definitions/json_Tour"
+    },
+    "set": {
+      "description": "all sets of this setlist",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/json_Set"
+      }
+    },
+    "info": {
+      "example": "Recorded and published as 'The Beatles at the Hollywood Bowl'",
+      "description": "additional information on the concert - see the <a href=\"https://www.setlist.fm/guidelines\">setlist.fm\nguidelines</a> for a complete list of allowed content.",
+      "type": "string"
+    },
+    "url": {
+      "example": "https://www.setlist.fm/setlist/the-beatles/1964/hollywood-bowl-hollywood-ca-63de4613.html",
+      "description": "the attribution url to which you have to link to wherever you use data from this setlist in your application",
+      "type": "string"
+    },
+    "id": {
+      "example": "63de4613",
+      "description": "unique identifier",
+      "type": "string"
+    },
+    "versionId": {
+      "example": "7be1aaa0",
+      "description": "unique identifier of the version",
+      "type": "string"
+    },
+    "lastFmEventId": {
+      "example": 1164056,
+      "description": "the id this event has on <a href=\"http://last.fm/\">last.fm</a> (deprecated)",
+      "type": "number"
+    },
+    "eventDate": {
+      "example": "23-08-1964",
+      "description": "date of the concert in the format &quot;dd-MM-yyyy&quot;",
+      "type": "string"
+    },
+    "lastUpdated": {
+      "example": "2013-10-20T05:18:08.000+0000",
+      "description": "date, time and time zone of the last update to this setlist in the format\n&quot;yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ&quot;",
+      "type": "string"
+    }
+  },
+  "example": {
+    "artist": {
+      "mbid": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d",
+      "name": "The Beatles",
+      "sortName": "Beatles, The",
+      "disambiguation": "John, Paul, George and Ringo",
+      "url": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+    },
+    "venue": {
+      "city": {
+        "id": "5357527",
+        "name": "Hollywood",
+        "stateCode": "CA",
+        "state": "California",
+        "coords": {},
+        "country": {}
+      },
+      "url": "https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html",
+      "id": "6bd6ca6e",
+      "name": "Compaq Center"
+    },
+    "tour": {
+      "name": "North American Tour 1964"
+    },
+    "set": [
+      {
+        "name": "...",
+        "encore": 12345,
+        "song": [
+          {
+            "name": "Yesterday",
+            "with": {},
+            "cover": {},
+            "info": "...",
+            "tape": false
+          },
+          {
+            "name": "...",
+            "with": {},
+            "cover": {},
+            "info": "...",
+            "tape": true
+          }
+        ]
+      },
+      {
+        "name": "...",
+        "encore": 12345,
+        "song": [
+          {
+            "name": "...",
+            "with": {},
+            "cover": {},
+            "info": "...",
+            "tape": true
+          },
+          {
+            "name": "...",
+            "with": {},
+            "cover": {},
+            "info": "...",
+            "tape": true
+          }
+        ]
+      }
+    ],
+    "info": "Recorded and published as 'The Beatles at the Hollywood Bowl'",
+    "url": "https://www.setlist.fm/setlist/the-beatles/1964/hollywood-bowl-hollywood-ca-63de4613.html",
+    "id": "63de4613",
+    "versionId": "7be1aaa0",
+    "eventDate": "23-08-1964",
+    "lastUpdated": "2013-10-20T05:18:08.000+0000"
+  }
+}

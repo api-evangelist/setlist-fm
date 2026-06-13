@@ -1,0 +1,513 @@
+{
+  "Artist.mbid": {
+    "term": "mbid",
+    "entity": "Artist",
+    "type": "string",
+    "description": "unique Musicbrainz Identifier (MBID), e.g. <em>&quot;b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d&quot;</em>",
+    "example": "b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d"
+  },
+  "Artist.tmid": {
+    "term": "tmid",
+    "entity": "Artist",
+    "type": "number",
+    "description": "unique Ticket Master Identifier (TMID), e.g. <em>735610</em> (deprecated)",
+    "example": 735610
+  },
+  "Artist.name": {
+    "term": "name",
+    "entity": "Artist",
+    "type": "string",
+    "description": "the artist's name, e.g. <em>&quot;The Beatles&quot;</em>",
+    "example": "The Beatles"
+  },
+  "Artist.sortName": {
+    "term": "sortName",
+    "entity": "Artist",
+    "type": "string",
+    "description": "the artist's sort name, e.g. <em>&quot;Beatles, The&quot;</em> or <em>&quot;Springsteen, Bruce&quot;</em>",
+    "example": "Beatles, The"
+  },
+  "Artist.disambiguation": {
+    "term": "disambiguation",
+    "entity": "Artist",
+    "type": "string",
+    "description": "disambiguation to distinguish between artists with same names",
+    "example": "John, Paul, George and Ringo"
+  },
+  "Artist.url": {
+    "term": "url",
+    "entity": "Artist",
+    "type": "string",
+    "description": "the attribution url",
+    "example": "https://www.setlist.fm/setlists/the-beatles-23d6a88b.html"
+  },
+  "Artists.artist": {
+    "term": "artist",
+    "entity": "Artists",
+    "type": "array",
+    "description": "result list of artists",
+    "example": ""
+  },
+  "Artists.total": {
+    "term": "total",
+    "entity": "Artists",
+    "type": "number",
+    "description": "the total amount of items matching the query",
+    "example": 42
+  },
+  "Artists.page": {
+    "term": "page",
+    "entity": "Artists",
+    "type": "number",
+    "description": "the current page. starts at 1",
+    "example": 1
+  },
+  "Artists.itemsPerPage": {
+    "term": "itemsPerPage",
+    "entity": "Artists",
+    "type": "number",
+    "description": "the amount of items you get per page",
+    "example": 20
+  },
+  "Cities.cities": {
+    "term": "cities",
+    "entity": "Cities",
+    "type": "array",
+    "description": "result list of cities",
+    "example": ""
+  },
+  "Cities.total": {
+    "term": "total",
+    "entity": "Cities",
+    "type": "number",
+    "description": "the total amount of items matching the query",
+    "example": 42
+  },
+  "Cities.page": {
+    "term": "page",
+    "entity": "Cities",
+    "type": "number",
+    "description": "the current page. starts at 1",
+    "example": 1
+  },
+  "Cities.itemsPerPage": {
+    "term": "itemsPerPage",
+    "entity": "Cities",
+    "type": "number",
+    "description": "the amount of items you get per page",
+    "example": 20
+  },
+  "City.id": {
+    "term": "id",
+    "entity": "City",
+    "type": "string",
+    "description": "unique identifier",
+    "example": "5357527"
+  },
+  "City.name": {
+    "term": "name",
+    "entity": "City",
+    "type": "string",
+    "description": "the city's name, depending on the language valid values are e.g. <em>&quot;M&uuml;chen&quot;</em> or\n<em>Munich</em>",
+    "example": "Hollywood"
+  },
+  "City.stateCode": {
+    "term": "stateCode",
+    "entity": "City",
+    "type": "string",
+    "description": "The code of the city's state. For most countries this is a two-digit numeric code, with which the state can be\nidentified uniquely in the specific Country. The code can also be a String for other cities. Valid\nexamples are <em>&quot;CA&quot;</em> or <em>&quot;02&quot;</em>\n\nwhich in turn get uniquely identifiable when combined with the state's country:\n\n<em>&quot;US.CA&quot;</em> for California, United States or <em>&quot;DE.02&quot;</em> for Bavaria, Germany\n\nFor a complete list of available states (that aren't necessarily used in this database) is available in\n<a href= \"http://download.geonames.org/export/dump/admin1CodesASCII.txt\">a textfile on geonames.org</a>.\n\nNote that this code is only unique combined with the city's Country. The code alone is\n<strong>not</strong> unique.",
+    "example": "CA"
+  },
+  "City.state": {
+    "term": "state",
+    "entity": "City",
+    "type": "string",
+    "description": "The name of city's state, e.g. <em>&quot;Bavaria&quot;</em> or <em>&quot;Florida&quot;</em>",
+    "example": "California"
+  },
+  "City.coords": {
+    "term": "coords",
+    "entity": "City",
+    "type": "",
+    "description": "The city's coordinates. Usually the coordinates of the city centre are used.",
+    "example": ""
+  },
+  "City.country": {
+    "term": "country",
+    "entity": "City",
+    "type": "",
+    "description": "The city's country.",
+    "example": ""
+  },
+  "Coords.long": {
+    "term": "long",
+    "entity": "Coords",
+    "type": "number",
+    "description": "The longitude part of the coordinates.",
+    "example": -118.3267434
+  },
+  "Coords.lat": {
+    "term": "lat",
+    "entity": "Coords",
+    "type": "number",
+    "description": "The latitude part of the coordinates.",
+    "example": 34.0983425
+  },
+  "Countries.country": {
+    "term": "country",
+    "entity": "Countries",
+    "type": "array",
+    "description": "result list of countries",
+    "example": ""
+  },
+  "Countries.total": {
+    "term": "total",
+    "entity": "Countries",
+    "type": "number",
+    "description": "the total amount of items matching the query",
+    "example": 42
+  },
+  "Countries.page": {
+    "term": "page",
+    "entity": "Countries",
+    "type": "number",
+    "description": "the current page. starts at 1",
+    "example": 1
+  },
+  "Countries.itemsPerPage": {
+    "term": "itemsPerPage",
+    "entity": "Countries",
+    "type": "number",
+    "description": "the amount of items you get per page",
+    "example": 20
+  },
+  "Country.code": {
+    "term": "code",
+    "entity": "Country",
+    "type": "string",
+    "description": "The country's <a href= \"http://www.iso.org/iso/english_country_names_and_code_elements\" >ISO code</a>. E.g.\n<em>&quot;ie&quot;</em> for Ireland",
+    "example": "US"
+  },
+  "Country.name": {
+    "term": "name",
+    "entity": "Country",
+    "type": "string",
+    "description": "The country's name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or\n<em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.",
+    "example": "United States"
+  },
+  "Error.code": {
+    "term": "code",
+    "entity": "Error",
+    "type": "number",
+    "description": "the HTTP status code",
+    "example": 404
+  },
+  "Error.status": {
+    "term": "status",
+    "entity": "Error",
+    "type": "string",
+    "description": "the HTTP status message",
+    "example": "Not Found"
+  },
+  "Error.message": {
+    "term": "message",
+    "entity": "Error",
+    "type": "string",
+    "description": "an additional error message",
+    "example": "unknown mbid"
+  },
+  "Error.timestamp": {
+    "term": "timestamp",
+    "entity": "Error",
+    "type": "string",
+    "description": "current timestamp",
+    "example": "2016-12-08T17:52:48.817+0000"
+  },
+  "Set.name": {
+    "term": "name",
+    "entity": "Set",
+    "type": "string",
+    "description": "the description/name of the set. E.g. <em>&quot;Acoustic set&quot;</em> or <em>&quot;Paul McCartney\nsolo&quot;</em>",
+    "example": ""
+  },
+  "Set.encore": {
+    "term": "encore",
+    "entity": "Set",
+    "type": "number",
+    "description": "if the set is an encore, this is the number of the encore, starting with 1 for the first encore, 2 for the second\nand so on.",
+    "example": ""
+  },
+  "Set.song": {
+    "term": "song",
+    "entity": "Set",
+    "type": "array",
+    "description": "this set's songs",
+    "example": ""
+  },
+  "Setlist.artist": {
+    "term": "artist",
+    "entity": "Setlist",
+    "type": "",
+    "description": "the setlist's artist",
+    "example": ""
+  },
+  "Setlist.venue": {
+    "term": "venue",
+    "entity": "Setlist",
+    "type": "",
+    "description": "the setlist's venue",
+    "example": ""
+  },
+  "Setlist.tour": {
+    "term": "tour",
+    "entity": "Setlist",
+    "type": "",
+    "description": "the setlist's tour",
+    "example": ""
+  },
+  "Setlist.set": {
+    "term": "set",
+    "entity": "Setlist",
+    "type": "array",
+    "description": "all sets of this setlist",
+    "example": ""
+  },
+  "Setlist.info": {
+    "term": "info",
+    "entity": "Setlist",
+    "type": "string",
+    "description": "additional information on the concert - see the <a href=\"https://www.setlist.fm/guidelines\">setlist.fm\nguidelines</a> for a complete list of allowed content.",
+    "example": "Recorded and published as 'The Beatles at the Hollywood Bowl'"
+  },
+  "Setlist.url": {
+    "term": "url",
+    "entity": "Setlist",
+    "type": "string",
+    "description": "the attribution url to which you have to link to wherever you use data from this setlist in your application",
+    "example": "https://www.setlist.fm/setlist/the-beatles/1964/hollywood-bowl-hollywood-ca-63de4613.html"
+  },
+  "Setlist.id": {
+    "term": "id",
+    "entity": "Setlist",
+    "type": "string",
+    "description": "unique identifier",
+    "example": "63de4613"
+  },
+  "Setlist.versionId": {
+    "term": "versionId",
+    "entity": "Setlist",
+    "type": "string",
+    "description": "unique identifier of the version",
+    "example": "7be1aaa0"
+  },
+  "Setlist.lastFmEventId": {
+    "term": "lastFmEventId",
+    "entity": "Setlist",
+    "type": "number",
+    "description": "the id this event has on <a href=\"http://last.fm/\">last.fm</a> (deprecated)",
+    "example": 1164056
+  },
+  "Setlist.eventDate": {
+    "term": "eventDate",
+    "entity": "Setlist",
+    "type": "string",
+    "description": "date of the concert in the format &quot;dd-MM-yyyy&quot;",
+    "example": "23-08-1964"
+  },
+  "Setlist.lastUpdated": {
+    "term": "lastUpdated",
+    "entity": "Setlist",
+    "type": "string",
+    "description": "date, time and time zone of the last update to this setlist in the format\n&quot;yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ&quot;",
+    "example": "2013-10-20T05:18:08.000+0000"
+  },
+  "Setlists.setlist": {
+    "term": "setlist",
+    "entity": "Setlists",
+    "type": "array",
+    "description": "result list of setlists",
+    "example": ""
+  },
+  "Setlists.total": {
+    "term": "total",
+    "entity": "Setlists",
+    "type": "number",
+    "description": "the total amount of items matching the query",
+    "example": 42
+  },
+  "Setlists.page": {
+    "term": "page",
+    "entity": "Setlists",
+    "type": "number",
+    "description": "the current page. starts at 1",
+    "example": 1
+  },
+  "Setlists.itemsPerPage": {
+    "term": "itemsPerPage",
+    "entity": "Setlists",
+    "type": "number",
+    "description": "the amount of items you get per page",
+    "example": 20
+  },
+  "Song.name": {
+    "term": "name",
+    "entity": "Song",
+    "type": "string",
+    "description": "The name of the song. E.g. <em>Yesterday</em> or <em>&quot;Wish You Were Here&quot;</em>",
+    "example": "Yesterday"
+  },
+  "Song.with": {
+    "term": "with",
+    "entity": "Song",
+    "type": "",
+    "description": "A different Artist than the performing one that joined the stage for this song.",
+    "example": ""
+  },
+  "Song.cover": {
+    "term": "cover",
+    "entity": "Song",
+    "type": "",
+    "description": "The original Artist of this song, if different to the performing artist.",
+    "example": ""
+  },
+  "Song.info": {
+    "term": "info",
+    "entity": "Song",
+    "type": "string",
+    "description": "Special incidents or additional information about the way the song was performed at this specific concert. See\nthe <a href=\"https://www.setlist.fm/guidelines\">setlist.fm guidelines</a> for a complete list of allowed content.",
+    "example": ""
+  },
+  "Song.tape": {
+    "term": "tape",
+    "entity": "Song",
+    "type": "boolean",
+    "description": "The song came from tape rather than being performed live. See the\n<a href=\"https://www.setlist.fm/guidelines#tape-songs\">tape section of the guidelines</a> for valid usage.",
+    "example": false
+  },
+  "Tour.name": {
+    "term": "name",
+    "entity": "Tour",
+    "type": "string",
+    "description": "The name of the tour.",
+    "example": "North American Tour 1964"
+  },
+  "User.userId": {
+    "term": "userId",
+    "entity": "User",
+    "type": "string",
+    "description": "",
+    "example": ""
+  },
+  "User.fullname": {
+    "term": "fullname",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.lastFm": {
+    "term": "lastFm",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.mySpace": {
+    "term": "mySpace",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.twitter": {
+    "term": "twitter",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.flickr": {
+    "term": "flickr",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.website": {
+    "term": "website",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.about": {
+    "term": "about",
+    "entity": "User",
+    "type": "string",
+    "description": "never set (deprecated)",
+    "example": ""
+  },
+  "User.url": {
+    "term": "url",
+    "entity": "User",
+    "type": "string",
+    "description": "",
+    "example": ""
+  },
+  "Venue.city": {
+    "term": "city",
+    "entity": "Venue",
+    "type": "",
+    "description": "the city in which the venue is located",
+    "example": ""
+  },
+  "Venue.url": {
+    "term": "url",
+    "entity": "Venue",
+    "type": "string",
+    "description": "the attribution url",
+    "example": "https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html"
+  },
+  "Venue.id": {
+    "term": "id",
+    "entity": "Venue",
+    "type": "string",
+    "description": "unique identifier",
+    "example": "6bd6ca6e"
+  },
+  "Venue.name": {
+    "term": "name",
+    "entity": "Venue",
+    "type": "string",
+    "description": "the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or\n<em>&quot;Royal Albert Hall&quot;</em>",
+    "example": "Compaq Center"
+  },
+  "Venues.venue": {
+    "term": "venue",
+    "entity": "Venues",
+    "type": "array",
+    "description": "result list of venues",
+    "example": ""
+  },
+  "Venues.total": {
+    "term": "total",
+    "entity": "Venues",
+    "type": "number",
+    "description": "the total amount of items matching the query",
+    "example": 42
+  },
+  "Venues.page": {
+    "term": "page",
+    "entity": "Venues",
+    "type": "number",
+    "description": "the current page. starts at 1",
+    "example": 1
+  },
+  "Venues.itemsPerPage": {
+    "term": "itemsPerPage",
+    "entity": "Venues",
+    "type": "number",
+    "description": "the amount of items you get per page",
+    "example": 20
+  }
+}
