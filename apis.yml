@@ -1,0 +1,74 @@
+aid: setlist-fm
+name: setlist.fm
+description: >-
+  setlist.fm is a concert setlist database providing a REST API for accessing
+  setlists, searching by artist or venue, tracking tour dates, and accessing
+  live music performance data. The API supports JSON and XML responses, uses
+  MusicBrainz IDs for artist identification, and provides endpoints for
+  artists, venues, cities, countries, and user attendance data.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/setlist-fm/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Music
+  - Concerts
+  - Setlists
+  - Live Music
+  - Venues
+  - Artists
+  - Tour Dates
+  - Events
+apis:
+  - aid: setlist-fm:setlist-fm-api
+    name: setlist.fm API
+    description: >-
+      RESTful API providing access to setlist data for concerts and live music
+      performances. Supports searching by artist (via MusicBrainz ID), venue,
+      city, and date. Returns setlists, song lists, venue details, artist
+      profiles, and user attendance records. Free for non-commercial use with
+      API key registration required.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://api.setlist.fm/docs/1.0/resources.html
+    baseURL: https://api.setlist.fm/rest
+    tags:
+      - Music
+      - Concerts
+      - Setlists
+      - Live Music
+      - Search
+      - Artists
+      - Venues
+    properties:
+      - type: Documentation
+        url: https://api.setlist.fm/docs/1.0/resources.html
+      - type: OpenAPI
+        url: https://api.setlist.fm/docs/1.0/ui/swagger.json
+    contact:
+      - FN: setlist.fm Support
+        url: https://www.setlist.fm/faq
+common:
+  - type: Website
+    url: https://www.setlist.fm
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+  - type: GitHubOrg
+    url: https://github.com/topics/setlist-fm
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/setlist-fm
+  - type: Blog
+    url: https://blog.setlist.fm
+  - type: Pricing
+    url: https://www.setlist.fm/faq
+  - type: X
+    url: https://x.com/setlistfm
+  - type: Plans
+    url: plans/setlist-fm-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/setlist-fm-rate-limits.yml
+  - type: FinOps
+    url: finops/setlist-fm-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

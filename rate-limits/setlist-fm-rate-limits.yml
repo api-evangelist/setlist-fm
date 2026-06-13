@@ -1,0 +1,23 @@
+name: setlist.fm API Rate Limits
+description: Rate limiting details for the setlist.fm REST API
+url: https://www.setlist.fm/forum/setlistfm/setlistfm-api/regarding-the-api-rate-limit-63d71a87
+tiers:
+  - name: Standard (Free, Non-Commercial)
+    requestsPerSecond: 2
+    requestsPerDay: 1440
+    burstLimit: null
+    notes: Default rate limit for all free API keys.
+  - name: Upgraded (Commercial / On Request)
+    requestsPerSecond: 16
+    concurrentBurst: 8
+    requestsPerDay: 50000
+    notes: Available upon manual request and review. Upgrade requests may take considerable time to process.
+errorCodes:
+  - code: 429
+    meaning: Too Many Requests — rate limit exceeded
+enforcement:
+  - HTTP 429 status code returned when limit is exceeded
+  - Throttling applied per API key
+upgradeProcess:
+  description: Submit a rate limit upgrade request via the setlist.fm API forum or direct contact. Reviewed on a case-by-case basis.
+  url: https://www.setlist.fm/forum/setlistfm/setlistfm-api/rate-limit-upgrade-request-6bd79a7a

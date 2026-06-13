@@ -1,0 +1,37 @@
+name: setlist.fm Plans and Pricing
+description: Pricing and access tiers for the setlist.fm API
+url: https://www.setlist.fm/faq
+plans:
+  - name: Free (Non-Commercial)
+    description: Free API access for non-commercial projects. Requires registration and API key application.
+    price: 0
+    currency: USD
+    billing: none
+    features:
+      - Non-commercial use only
+      - API key via application
+      - JSON and XML response formats
+      - Access to all public endpoints
+      - Localization support (en, es, fr, de, pt, tr, it, pl)
+    rateLimit:
+      requestsPerSecond: 2
+      requestsPerDay: 1440
+  - name: Commercial / Upgraded
+    description: Commercial use and higher rate limits available upon request and review by setlist.fm team. Contact setlist.fm for pricing and terms.
+    price: contact
+    currency: USD
+    billing: negotiated
+    features:
+      - Commercial use permitted
+      - Higher rate limits (up to 16 requests/second)
+      - Up to 50,000 requests per day
+      - Priority support
+    rateLimit:
+      requestsPerSecond: 16
+      requestsPerDay: 50000
+notes:
+  - The API is only free for non-commercial projects.
+  - For commercial use, contact setlist.fm directly.
+  - Rate limit upgrades are handled on a case-by-case basis via manual request.
+contact:
+  url: https://www.setlist.fm/faq

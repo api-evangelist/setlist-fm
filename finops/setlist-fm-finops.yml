@@ -1,0 +1,31 @@
+name: setlist.fm API FinOps
+description: Financial operations guidance for managing setlist.fm API costs and usage
+tiers:
+  - name: Free Non-Commercial
+    monthlyCost: 0
+    currency: USD
+    dailyRequestBudget: 1440
+    notes: Zero cost for non-commercial applications. Budget is time-based (1,440 requests per day = 1 request per minute average).
+  - name: Commercial
+    monthlyCost: negotiated
+    currency: USD
+    dailyRequestBudget: 50000
+    notes: Contact setlist.fm for commercial licensing terms. No published pricing.
+costOptimization:
+  - Implement response caching to reduce redundant API calls, especially for setlist and artist data that changes infrequently.
+  - Batch search queries where possible rather than fetching individual records.
+  - Use pagination efficiently — avoid fetching pages beyond what is needed.
+  - Cache MusicBrainz ID (MBID) lookups for frequently queried artists.
+  - Monitor daily request usage against the 1,440-request free tier limit.
+  - For event-driven use cases, cache results by date to avoid re-fetching unchanged setlists.
+budgetAlerts:
+  - Monitor for HTTP 429 responses as a signal that the daily or per-second limit is being approached.
+complianceNotes:
+  - Free tier is restricted to non-commercial projects; commercial use requires a separate agreement.
+  - Attribution to setlist.fm may be required under their terms of service.
+  - Data is licensed under Creative Commons (CC BY-NC-SA 3.0); commercial use of data is restricted.
+references:
+  - url: https://www.setlist.fm/faq
+    description: setlist.fm FAQ covering API usage and licensing
+  - url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+    description: Creative Commons BY-NC-SA 3.0 license governing setlist data
