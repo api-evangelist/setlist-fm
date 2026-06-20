@@ -6,7 +6,7 @@ description: >-
   live music performance data. The API supports JSON and XML responses, uses
   MusicBrainz IDs for artist identification, and provides endpoints for
   artists, venues, cities, countries, and user attendance data.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/setlist-fm/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -29,7 +29,7 @@ apis:
       city, and date. Returns setlists, song lists, venue details, artist
       profiles, and user attendance records. Free for non-commercial use with
       API key registration required.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://api.setlist.fm/docs/1.0/resources.html
     baseURL: https://api.setlist.fm/rest
     tags:
