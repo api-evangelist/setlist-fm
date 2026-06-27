@@ -1,11 +1,8 @@
 {
   "repo": "setlist-fm",
   "feeds": [
-    {
-      "source": "https://www.linkedin.com/company/setlist-fm",
-      "error": "HTTPError"
-    }
+    {"source": "https://blog.setlist.fm", "saved": 0, "error": "connection failed (socket closed)"}
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T13:09:24Z"
 }
