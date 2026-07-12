@@ -49,6 +49,8 @@ apis:
       - FN: setlist.fm Support
         url: https://www.setlist.fm/faq
 common:
+  - type: DomainSecurity
+    url: security/setlist-fm-domain-security.yml
   - type: Website
     url: https://www.setlist.fm
   - type: Documentation
