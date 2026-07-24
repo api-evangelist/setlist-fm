@@ -1,0 +1,300 @@
+swagger: '2.0'
+info:
+  description: '<p>
+
+    The setlist.fm API has been designed to give you easy access to setlist data in order to build fancy websites and
+
+    other applications. Before starting to use the API, be sure to ...
+
+    <ol>
+
+    <li>... understand how setlist.fm works (the <a href="https://www.setlist.fm/faq">FAQ</a> and the
+
+    <a href="https://www.setlist.fm/guidelines">Guidelines</a> are a good starting point),</li>
+
+    <li>... read this documentation carefully and</li>
+
+    <li>... <a href="https://www.setlist.fm/settings/api">apply for an API key</a> (link for logged in users only) - if
+
+    you''re no registered user yet, then <a href="https://www.setlist.fm/signup">register first</a> (it''s free).</li>
+
+    </ol>
+
+    </p>
+
+    <p>
+
+    If this documentation isn''t enough or if you''ve got other things you''d like to tell us about the API, visit the
+
+    <a href="https://www.setlist.fm/forum/setlistfm/setlistfm-api">API Forum</a>.
+
+    </p>
+
+    <p>
+
+    Note that the setlist.fm API is, according to the <a href="https://www.setlist.fm/help/api-terms">API terms of
+
+    service</a>, only free for non-commercial projects. If you''re interested in using the API for commercial purposes,
+
+    <a href="https://www.setlist.fm/contact">contact us</a>.
+
+    </p>
+
+
+    <h2>About this Service</h2>
+
+    <p>
+
+    This service provides methods to get both setlists and components of setlists such as artists, cities, countries or
+
+    venues.
+
+    </p>
+
+
+    <h2>Supported Content Types</h2>
+
+    <p>
+
+    The REST service currently supports XML (default) and JSON content.
+
+    </p>
+
+    <p>
+
+    To receive a JSON response, set the <code>Accept</code>
+
+    <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1">header</a> to <em>application/json</em>.
+
+    </p>
+
+
+    <h2>Internationalization</h2>
+
+    <p>
+
+    <small>(Please note that this is an experimental feature and does not work for all cities!)</small>
+
+    </p>
+
+    <p>
+
+    Most of the featured methods honor the <code>Accept-Language</code>
+
+    <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4">header</a>. This header is used for
+
+    localizing cities and countries. The default language is English (en), but you can provide any of the languages
+
+    Spanish (es), French (fr), German (de), Portuguese (pt), Turkish (tr), Italian (it) or Polish (pl).
+
+    </p>
+
+    <p>
+
+    E.g. if you search a setlist for a concert that took place in Vienna and you pass &quot;de&quot; as header, you''ll
+
+    get <em>&quot;Wien, &Ouml;sterreich&quot;</em> instead of <em>&quot;Vienna, Austria&quot;</em>.<br/>
+
+    This also works if you use a different language than the country''s native language.
+
+    </p>
+
+    <p>
+
+    E.g. for a concert in New York, you''ll get <em>&quot;Nueva York, Estados Unidos&quot;</em> instead of <em>&quot;New
+
+    York, United States&quot;</em> if you pass &quot;es&quot; as language.
+
+    </p>
+
+
+    <h2>API Keys</h2>
+
+
+    API keys (<a href="https://www.setlist.fm/settings/api">application form</a>) must be included in the request with
+
+    the <code>x-api-key</code> header.
+
+
+    <h2>Version History</h2>
+
+    <table class="table table-bordered table-versions">
+
+    <thead>
+
+    <tr>
+
+    <th>Version</th>
+
+    <th>Docs</th>
+
+    <th>End of Service</th>
+
+    </tr>
+
+    </thead> <tbody>
+
+    <tr>
+
+    <td><strong>1.0</strong></td>
+
+    <td><a href="/docs/1.0">Docs</a></td>
+
+    <td>-</li>
+
+    </tr>
+
+    <tr>
+
+    <td><strong>0.1</strong></td>
+
+    <td></td>
+
+    <td>December 31, 2017</li>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  version: '1.0'
+  title: setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/city/{geoId} API
+basePath: /rest
+schemes: []
+tags:
+- name: /1.0/city/{geoId}
+paths:
+  /1.0/city/{geoId}:
+    get:
+      tags:
+      - /1.0/city/{geoId}
+      summary: Get a city by its unique geoId.
+      description: Get a city by its unique geoId.
+      operationId: resource__1.0_city__geoId__getCity_GET
+      produces:
+      - application/xml
+      - application/json
+      parameters:
+      - name: geoId
+        in: path
+        required: true
+        type: string
+        description: the city's geoId
+      responses:
+        '200':
+          schema:
+            description: ''
+            $ref: '#/definitions/json_City'
+          headers: {}
+          examples:
+            application/json:
+              id: '5357527'
+              name: Hollywood
+              stateCode: CA
+              state: California
+              coords:
+                long: -118.3267434
+                lat: 34.0983425
+              country:
+                code: US
+                name: United States
+          description: Success
+definitions:
+  json_Country:
+    type: object
+    title: country
+    properties:
+      code:
+        example: US
+        description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
+
+          <em>&quot;ie&quot;</em> for Ireland'
+        type: string
+      name:
+        example: United States
+        description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
+
+          <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
+        type: string
+    example:
+      code: US
+      name: United States
+    description: This class represents a country on earth.
+  json_City:
+    type: object
+    title: city
+    properties:
+      id:
+        example: '5357527'
+        description: unique identifier
+        type: string
+      name:
+        example: Hollywood
+        description: 'the city''s name, depending on the language valid values are e.g. <em>&quot;M&uuml;chen&quot;</em> or
+
+          <em>Munich</em>'
+        type: string
+      stateCode:
+        example: CA
+        description: 'The code of the city''s state. For most countries this is a two-digit numeric code, with which the state can be
+
+          identified uniquely in the specific Country. The code can also be a String for other cities. Valid
+
+          examples are <em>&quot;CA&quot;</em> or <em>&quot;02&quot;</em>
+
+
+          which in turn get uniquely identifiable when combined with the state''s country:
+
+
+          <em>&quot;US.CA&quot;</em> for California, United States or <em>&quot;DE.02&quot;</em> for Bavaria, Germany
+
+
+          For a complete list of available states (that aren''t necessarily used in this database) is available in
+
+          <a href= "http://download.geonames.org/export/dump/admin1CodesASCII.txt">a textfile on geonames.org</a>.
+
+
+          Note that this code is only unique combined with the city''s Country. The code alone is
+
+          <strong>not</strong> unique.'
+        type: string
+      state:
+        example: California
+        description: The name of city's state, e.g. <em>&quot;Bavaria&quot;</em> or <em>&quot;Florida&quot;</em>
+        type: string
+      coords:
+        description: The city's coordinates. Usually the coordinates of the city centre are used.
+        $ref: '#/definitions/json_Coords'
+      country:
+        description: The city's country.
+        $ref: '#/definitions/json_Country'
+    example:
+      id: '5357527'
+      name: Hollywood
+      stateCode: CA
+      state: California
+      coords:
+        long: -118.3267434
+        lat: 34.0983425
+      country:
+        code: US
+        name: United States
+    description: 'This class represents a city where Venues are located. Most of the original city data was taken from
+
+      <a href="http://geonames.org/">Geonames.org</a>.'
+  json_Coords:
+    type: object
+    title: coords
+    properties:
+      long:
+        example: -118.3267434
+        description: The longitude part of the coordinates.
+        type: number
+      lat:
+        example: 34.0983425
+        description: The latitude part of the coordinates.
+        type: number
+    example:
+      long: -118.3267434
+      lat: 34.0983425
+    description: Coordinates of a point on the globe. Mostly used for Cities.

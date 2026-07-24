@@ -1,0 +1,299 @@
+swagger: '2.0'
+info:
+  description: '<p>
+
+    The setlist.fm API has been designed to give you easy access to setlist data in order to build fancy websites and
+
+    other applications. Before starting to use the API, be sure to ...
+
+    <ol>
+
+    <li>... understand how setlist.fm works (the <a href="https://www.setlist.fm/faq">FAQ</a> and the
+
+    <a href="https://www.setlist.fm/guidelines">Guidelines</a> are a good starting point),</li>
+
+    <li>... read this documentation carefully and</li>
+
+    <li>... <a href="https://www.setlist.fm/settings/api">apply for an API key</a> (link for logged in users only) - if
+
+    you''re no registered user yet, then <a href="https://www.setlist.fm/signup">register first</a> (it''s free).</li>
+
+    </ol>
+
+    </p>
+
+    <p>
+
+    If this documentation isn''t enough or if you''ve got other things you''d like to tell us about the API, visit the
+
+    <a href="https://www.setlist.fm/forum/setlistfm/setlistfm-api">API Forum</a>.
+
+    </p>
+
+    <p>
+
+    Note that the setlist.fm API is, according to the <a href="https://www.setlist.fm/help/api-terms">API terms of
+
+    service</a>, only free for non-commercial projects. If you''re interested in using the API for commercial purposes,
+
+    <a href="https://www.setlist.fm/contact">contact us</a>.
+
+    </p>
+
+
+    <h2>About this Service</h2>
+
+    <p>
+
+    This service provides methods to get both setlists and components of setlists such as artists, cities, countries or
+
+    venues.
+
+    </p>
+
+
+    <h2>Supported Content Types</h2>
+
+    <p>
+
+    The REST service currently supports XML (default) and JSON content.
+
+    </p>
+
+    <p>
+
+    To receive a JSON response, set the <code>Accept</code>
+
+    <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1">header</a> to <em>application/json</em>.
+
+    </p>
+
+
+    <h2>Internationalization</h2>
+
+    <p>
+
+    <small>(Please note that this is an experimental feature and does not work for all cities!)</small>
+
+    </p>
+
+    <p>
+
+    Most of the featured methods honor the <code>Accept-Language</code>
+
+    <a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4">header</a>. This header is used for
+
+    localizing cities and countries. The default language is English (en), but you can provide any of the languages
+
+    Spanish (es), French (fr), German (de), Portuguese (pt), Turkish (tr), Italian (it) or Polish (pl).
+
+    </p>
+
+    <p>
+
+    E.g. if you search a setlist for a concert that took place in Vienna and you pass &quot;de&quot; as header, you''ll
+
+    get <em>&quot;Wien, &Ouml;sterreich&quot;</em> instead of <em>&quot;Vienna, Austria&quot;</em>.<br/>
+
+    This also works if you use a different language than the country''s native language.
+
+    </p>
+
+    <p>
+
+    E.g. for a concert in New York, you''ll get <em>&quot;Nueva York, Estados Unidos&quot;</em> instead of <em>&quot;New
+
+    York, United States&quot;</em> if you pass &quot;es&quot; as language.
+
+    </p>
+
+
+    <h2>API Keys</h2>
+
+
+    API keys (<a href="https://www.setlist.fm/settings/api">application form</a>) must be included in the request with
+
+    the <code>x-api-key</code> header.
+
+
+    <h2>Version History</h2>
+
+    <table class="table table-bordered table-versions">
+
+    <thead>
+
+    <tr>
+
+    <th>Version</th>
+
+    <th>Docs</th>
+
+    <th>End of Service</th>
+
+    </tr>
+
+    </thead> <tbody>
+
+    <tr>
+
+    <td><strong>1.0</strong></td>
+
+    <td><a href="/docs/1.0">Docs</a></td>
+
+    <td>-</li>
+
+    </tr>
+
+    <tr>
+
+    <td><strong>0.1</strong></td>
+
+    <td></td>
+
+    <td>December 31, 2017</li>
+
+    </tr>
+
+    </tbody>
+
+    </table>'
+  version: '1.0'
+  title: setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/search/artists API
+basePath: /rest
+schemes: []
+tags:
+- name: /1.0/search/artists
+paths:
+  /1.0/search/artists:
+    get:
+      tags:
+      - /1.0/search/artists
+      summary: Search for artists.
+      description: Search for artists.
+      operationId: resource__1.0_search_artists_getArtists_GET
+      produces:
+      - application/xml
+      - application/json
+      parameters:
+      - name: artistMbid
+        in: query
+        type: string
+        description: the artist's Musicbrainz Identifier (mbid)
+      - name: artistName
+        in: query
+        type: string
+        description: the artist's name
+      - name: artistTmid
+        in: query
+        type: integer
+        description: the artist's Ticketmaster Identifier (tmid) (deprecated)
+      - name: p
+        in: query
+        default: '1'
+        type: integer
+        description: the number of the result page you'd like to have
+      - name: sort
+        in: query
+        default: sortName
+        type: string
+        description: the sort of the result, either sortName (default) or relevance
+      responses:
+        '200':
+          schema:
+            description: ''
+            $ref: '#/definitions/json_Artists'
+          headers: {}
+          examples:
+            application/json:
+              artist:
+              - mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+                name: The Beatles
+                sortName: Beatles, The
+                disambiguation: John, Paul, George and Ringo
+                url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+              - mbid: '...'
+                name: '...'
+                sortName: '...'
+                disambiguation: '...'
+                url: '...'
+              total: 42
+              page: 1
+              itemsPerPage: 20
+          description: Success
+definitions:
+  json_Artist:
+    type: object
+    title: artist
+    properties:
+      mbid:
+        example: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+        description: unique Musicbrainz Identifier (MBID), e.g. <em>&quot;b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d&quot;</em>
+        type: string
+      tmid:
+        example: 735610
+        description: unique Ticket Master Identifier (TMID), e.g. <em>735610</em> (deprecated)
+        type: number
+      name:
+        example: The Beatles
+        description: the artist's name, e.g. <em>&quot;The Beatles&quot;</em>
+        type: string
+      sortName:
+        example: Beatles, The
+        description: the artist's sort name, e.g. <em>&quot;Beatles, The&quot;</em> or <em>&quot;Springsteen, Bruce&quot;</em>
+        type: string
+      disambiguation:
+        example: John, Paul, George and Ringo
+        description: disambiguation to distinguish between artists with same names
+        type: string
+      url:
+        example: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+        description: the attribution url
+        type: string
+    example:
+      mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+      name: The Beatles
+      sortName: Beatles, The
+      disambiguation: John, Paul, George and Ringo
+      url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+    description: 'This class represents an artist. An artist is a musician or a group of musicians. Each artist has a definite
+
+      <a href="http://wiki.musicbrainz.org/MBID">Musicbrainz Identifier</a> (MBID) with which the artist can be uniquely
+
+      identified.'
+  json_Artists:
+    type: object
+    title: artists
+    properties:
+      artist:
+        description: result list of artists
+        type: array
+        items:
+          $ref: '#/definitions/json_Artist'
+      total:
+        example: 42
+        description: the total amount of items matching the query
+        type: number
+      page:
+        example: 1
+        description: the current page. starts at 1
+        type: number
+      itemsPerPage:
+        example: 20
+        description: the amount of items you get per page
+        type: number
+    example:
+      artist:
+      - mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+        name: The Beatles
+        sortName: Beatles, The
+        disambiguation: John, Paul, George and Ringo
+        url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+      - mbid: '...'
+        name: '...'
+        sortName: '...'
+        disambiguation: '...'
+        url: '...'
+      total: 42
+      page: 1
+      itemsPerPage: 20
+    description: A Result consisting of a list of artists.
