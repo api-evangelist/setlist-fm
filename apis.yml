@@ -6,7 +6,19 @@ description: >-
   live music performance data. The API supports JSON and XML responses, uses
   MusicBrainz IDs for artist identification, and provides endpoints for
   artists, venues, cities, countries, and user attendance data.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/setlist-fm.png
 url: https://raw.githubusercontent.com/api-evangelist/setlist-fm/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -21,33 +33,193 @@ tags:
   - Tour Dates
   - Events
 apis:
-  - aid: setlist-fm:setlist-fm-api
-    name: setlist.fm API
-    description: >-
-      RESTful API providing access to setlist data for concerts and live music
-      performances. Supports searching by artist (via MusicBrainz ID), venue,
-      city, and date. Returns setlists, song lists, venue details, artist
-      profiles, and user attendance records. Free for non-commercial use with
-      API key registration required.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://api.setlist.fm/docs/1.0/resources.html
-    baseURL: https://api.setlist.fm/rest
-    tags:
-      - Music
-      - Concerts
-      - Setlists
-      - Live Music
-      - Search
-      - Artists
-      - Venues
-    properties:
-      - type: Documentation
-        url: https://api.setlist.fm/docs/1.0/resources.html
-      - type: OpenAPI
-        url: https://api.setlist.fm/docs/1.0/ui/swagger.json
-    contact:
-      - FN: setlist.fm Support
-        url: https://www.setlist.fm/faq
+- aid: setlist-fm:setlist-fm-1-0-artist-mbid-api
+  name: setlist.fm /1.0/artist/{mbid} API
+  description: The /1.0/artist/{mbid} API from setlist.fm — 1 operation(s) for /1.0/artist/{mbid}.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/artist/{mbid}
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-artist-mbid-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-artist-mbid-setlists-api
+  name: setlist.fm /1.0/artist/{mbid}/setlists API
+  description: >-
+    The /1.0/artist/{mbid}/setlists API from setlist.fm — 1 operation(s) for /1.0/artist/{mbid}/setlists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/artist/{mbid}/setlists
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-artist-mbid-setlists-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-city-geoid-api
+  name: setlist.fm /1.0/city/{geoId} API
+  description: The /1.0/city/{geoId} API from setlist.fm — 1 operation(s) for /1.0/city/{geoid}.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/city/{geoId}
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-city-geoid-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-search-artists-api
+  name: setlist.fm /1.0/search/artists API
+  description: The /1.0/search/artists API from setlist.fm — 1 operation(s) for /1.0/search/artists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/search/artists
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-search-artists-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-search-cities-api
+  name: setlist.fm /1.0/search/cities API
+  description: The /1.0/search/cities API from setlist.fm — 1 operation(s) for /1.0/search/cities.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/search/cities
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-search-cities-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-search-countries-api
+  name: setlist.fm /1.0/search/countries API
+  description: >-
+    The /1.0/search/countries API from setlist.fm — 1 operation(s) for /1.0/search/countries.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/search/countries
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-search-countries-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-search-setlists-api
+  name: setlist.fm /1.0/search/setlists API
+  description: The /1.0/search/setlists API from setlist.fm — 1 operation(s) for /1.0/search/setlists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/search/setlists
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-search-setlists-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-search-venues-api
+  name: setlist.fm /1.0/search/venues API
+  description: The /1.0/search/venues API from setlist.fm — 1 operation(s) for /1.0/search/venues.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/search/venues
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-search-venues-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-setlist-setlistid-api
+  name: setlist.fm /1.0/setlist/{setlistId} API
+  description: >-
+    The /1.0/setlist/{setlistId} API from setlist.fm — 1 operation(s) for /1.0/setlist/{setlistid}.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/setlist/{setlistId}
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-setlist-setlistid-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-setlist-version-versionid-api
+  name: setlist.fm /1.0/setlist/version/{versionId} API
+  description: >-
+    The /1.0/setlist/version/{versionId} API from setlist.fm — 1 operation(s) for /1.0/setlist/version/{versionid}.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/setlist/version/{versionId}
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-setlist-version-versionid-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-user-userid-api
+  name: setlist.fm /1.0/user/{userId} API
+  description: The /1.0/user/{userId} API from setlist.fm — 1 operation(s) for /1.0/user/{userid}.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/user/{userId}
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-user-userid-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-user-userid-attended-api
+  name: setlist.fm /1.0/user/{userId}/attended API
+  description: >-
+    The /1.0/user/{userId}/attended API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/attended.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/user/{userId}/attended
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-user-userid-attended-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-user-userid-edited-api
+  name: setlist.fm /1.0/user/{userId}/edited API
+  description: >-
+    The /1.0/user/{userId}/edited API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/edited.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/user/{userId}/edited
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-user-userid-edited-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-venue-venueid-api
+  name: setlist.fm /1.0/venue/{venueId} API
+  description: The /1.0/venue/{venueId} API from setlist.fm — 1 operation(s) for /1.0/venue/{venueid}.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/venue/{venueId}
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-venue-venueid-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-1-0-venue-venueid-setlists-api
+  name: setlist.fm /1.0/venue/{venueId}/setlists API
+  description: >-
+    The /1.0/venue/{venueId}/setlists API from setlist.fm — 1 operation(s) for /1.0/venue/{venueid}/setlists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - /1.0/venue/{venueId}/setlists
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml
+  - type: Documentation
+    url: https://api.setlist.fm/docs/1.0/resources.html
 common:
   - type: AgenticAccess
     url: agentic-access/setlist-fm-agentic-access.yml
