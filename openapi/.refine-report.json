@@ -1,0 +1,42 @@
+{
+  "provider": "setlist-fm",
+  "sources": [
+    "setlist-fm-1-0-artist-mbid-api-openapi.yml",
+    "setlist-fm-1-0-artist-mbid-setlists-api-openapi.yml",
+    "setlist-fm-1-0-city-geoid-api-openapi.yml",
+    "setlist-fm-1-0-search-artists-api-openapi.yml",
+    "setlist-fm-1-0-search-cities-api-openapi.yml",
+    "setlist-fm-1-0-search-countries-api-openapi.yml",
+    "setlist-fm-1-0-search-setlists-api-openapi.yml",
+    "setlist-fm-1-0-search-venues-api-openapi.yml",
+    "setlist-fm-1-0-setlist-setlistid-api-openapi.yml",
+    "setlist-fm-1-0-setlist-version-versionid-api-openapi.yml",
+    "setlist-fm-1-0-user-userid-api-openapi.yml",
+    "setlist-fm-1-0-user-userid-attended-api-openapi.yml",
+    "setlist-fm-1-0-user-userid-edited-api-openapi.yml",
+    "setlist-fm-1-0-venue-venueid-api-openapi.yml",
+    "setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml"
+  ],
+  "outputs": [
+    "setlist-fm-1-0-artist-mbid-api-openapi.yml",
+    "setlist-fm-1-0-artist-mbid-setlists-api-openapi.yml",
+    "setlist-fm-1-0-city-geoid-api-openapi.yml",
+    "setlist-fm-1-0-search-artists-api-openapi.yml",
+    "setlist-fm-1-0-search-cities-api-openapi.yml",
+    "setlist-fm-1-0-search-countries-api-openapi.yml",
+    "setlist-fm-1-0-search-setlists-api-openapi.yml",
+    "setlist-fm-1-0-search-venues-api-openapi.yml",
+    "setlist-fm-1-0-setlist-setlistid-api-openapi.yml",
+    "setlist-fm-1-0-setlist-version-versionid-api-openapi.yml",
+    "setlist-fm-1-0-user-userid-api-openapi.yml",
+    "setlist-fm-1-0-user-userid-attended-api-openapi.yml",
+    "setlist-fm-1-0-user-userid-edited-api-openapi.yml",
+    "setlist-fm-1-0-venue-venueid-api-openapi.yml",
+    "setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
