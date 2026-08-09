@@ -1,0 +1,272 @@
+openapi: 3.0.3
+info:
+  title: setlist.fm REST Artists User API
+  description: 'The setlist.fm REST API provides read-only access to the world''s largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).'
+  version: '1.0'
+  contact:
+    name: setlist.fm
+    url: https://api.setlist.fm/docs/1.0/index.html
+  termsOfService: https://www.setlist.fm/help/terms
+servers:
+- url: https://api.setlist.fm/rest/1.0
+  description: setlist.fm REST API v1.0
+security:
+- apiKeyAuth: []
+tags:
+- name: User
+  description: Community members and their attended/edited setlists.
+paths:
+  /user/{userId}:
+    get:
+      operationId: getUser
+      tags:
+      - User
+      summary: Get a user
+      description: Returns a user for a given user ID.
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      responses:
+        '200':
+          description: The requested user.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /user/{userId}/attended:
+    get:
+      operationId: getUserAttended
+      tags:
+      - User
+      summary: Get concerts a user attended
+      description: Returns a paginated list of setlists a user has marked as attended.
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/PageParam'
+      responses:
+        '200':
+          description: A paginated list of attended setlists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setlists'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /user/{userId}/edited:
+    get:
+      operationId: getUserEdited
+      tags:
+      - User
+      summary: Get setlists a user edited
+      description: Returns a paginated list of setlists a user has edited.
+      parameters:
+      - $ref: '#/components/parameters/UserId'
+      - $ref: '#/components/parameters/PageParam'
+      responses:
+        '200':
+          description: A paginated list of edited setlists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setlists'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Sets:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Set'
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
+    User:
+      type: object
+      properties:
+        userId:
+          type: string
+        fullname:
+          type: string
+        lastFm:
+          type: string
+        mySpace:
+          type: string
+        twitter:
+          type: string
+        flickr:
+          type: string
+        website:
+          type: string
+        about:
+          type: string
+        url:
+          type: string
+          format: uri
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Setlist:
+      type: object
+      properties:
+        id:
+          type: string
+        versionId:
+          type: string
+        eventDate:
+          type: string
+          description: The date of the concert (format dd-MM-yyyy).
+        lastUpdated:
+          type: string
+          format: date-time
+        artist:
+          $ref: '#/components/schemas/Artist'
+        venue:
+          $ref: '#/components/schemas/Venue'
+        tour:
+          $ref: '#/components/schemas/Tour'
+        sets:
+          $ref: '#/components/schemas/Sets'
+        info:
+          type: string
+        url:
+          type: string
+          format: uri
+    Artist:
+      type: object
+      properties:
+        mbid:
+          type: string
+          description: Unique MusicBrainz Identifier of the artist.
+        name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: The setlist.fm page of the artist.
+    Setlists:
+      type: object
+      properties:
+        setlist:
+          type: array
+          items:
+            $ref: '#/components/schemas/Setlist'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+    Set:
+      type: object
+      properties:
+        name:
+          type: string
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      required: true
+      description: The user ID.
+      schema:
+        type: string
+    PageParam:
+      name: p
+      in: query
+      required: false
+      description: The number of the result page to return.
+      schema:
+        type: integer
+        default: 1
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key issued from https://www.setlist.fm/settings/api. Passed in the `x-api-key` request header on every call.

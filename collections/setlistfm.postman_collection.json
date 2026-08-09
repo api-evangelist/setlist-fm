@@ -1,0 +1,228 @@
+{
+  "info": {
+    "name": "setlist.fm REST API",
+    "description": "Read-only access to the setlist.fm concert setlist database. Base URL: https://api.setlist.fm/rest/1.0. Every request requires an API key in the x-api-key header (get one at https://www.setlist.fm/settings/api) and an Accept header of application/json (or application/xml). Free for non-commercial use only.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.setlist.fm/rest/1.0", "type": "string" },
+    { "key": "apiKey", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Artists",
+      "item": [
+        {
+          "name": "Get an artist",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/artist/:mbid", "host": ["{{baseUrl}}"], "path": ["artist", ":mbid"], "variable": [{ "key": "mbid", "value": "0bfba3d3-6a04-4779-bb0a-df07df5b0558" }] },
+            "description": "Returns an artist for a given MusicBrainz MBID."
+          }
+        },
+        {
+          "name": "Get an artist's setlists",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/artist/:mbid/setlists?p=1", "host": ["{{baseUrl}}"], "path": ["artist", ":mbid", "setlists"], "query": [{ "key": "p", "value": "1" }], "variable": [{ "key": "mbid", "value": "0bfba3d3-6a04-4779-bb0a-df07df5b0558" }] },
+            "description": "Returns a paginated list of the setlists of a given artist."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Setlists",
+      "item": [
+        {
+          "name": "Get a setlist",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/setlist/:setlistId", "host": ["{{baseUrl}}"], "path": ["setlist", ":setlistId"], "variable": [{ "key": "setlistId", "value": "" }] },
+            "description": "Returns the current version of a setlist for a given setlist ID."
+          }
+        },
+        {
+          "name": "Get a setlist by version",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/setlist/version/:versionId", "host": ["{{baseUrl}}"], "path": ["setlist", "version", ":versionId"], "variable": [{ "key": "versionId", "value": "" }] },
+            "description": "Returns a specific historical version of a setlist by its version ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Venues",
+      "item": [
+        {
+          "name": "Get a venue",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/venue/:venueId", "host": ["{{baseUrl}}"], "path": ["venue", ":venueId"], "variable": [{ "key": "venueId", "value": "" }] },
+            "description": "Returns a venue for a given venue ID."
+          }
+        },
+        {
+          "name": "Get a venue's setlists",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/venue/:venueId/setlists?p=1", "host": ["{{baseUrl}}"], "path": ["venue", ":venueId", "setlists"], "query": [{ "key": "p", "value": "1" }], "variable": [{ "key": "venueId", "value": "" }] },
+            "description": "Returns a paginated list of the setlists performed at a given venue."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cities",
+      "item": [
+        {
+          "name": "Get a city",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/city/:geoId", "host": ["{{baseUrl}}"], "path": ["city", ":geoId"], "variable": [{ "key": "geoId", "value": "5357527" }] },
+            "description": "Returns a city for a given GeoNames geoId."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Countries",
+      "item": [
+        {
+          "name": "Get all countries",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/search/countries", "host": ["{{baseUrl}}"], "path": ["search", "countries"] },
+            "description": "Returns the complete list of countries known to setlist.fm."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "item": [
+        {
+          "name": "Search for artists",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/search/artists?artistName=Radiohead&p=1&sort=relevance", "host": ["{{baseUrl}}"], "path": ["search", "artists"], "query": [{ "key": "artistName", "value": "Radiohead" }, { "key": "p", "value": "1" }, { "key": "sort", "value": "relevance" }] },
+            "description": "Search for artists by name, MBID, or Ticket Master ID."
+          }
+        },
+        {
+          "name": "Search for venues",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/search/venues?name=Madison Square Garden&p=1", "host": ["{{baseUrl}}"], "path": ["search", "venues"], "query": [{ "key": "name", "value": "Madison Square Garden" }, { "key": "p", "value": "1" }] },
+            "description": "Search for venues by name, city, state, or country."
+          }
+        },
+        {
+          "name": "Search for cities",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/search/cities?name=New York&p=1", "host": ["{{baseUrl}}"], "path": ["search", "cities"], "query": [{ "key": "name", "value": "New York" }, { "key": "p", "value": "1" }] },
+            "description": "Search for cities by name, country, state, or state code."
+          }
+        },
+        {
+          "name": "Search for setlists",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/search/setlists?artistName=Radiohead&year=2023&p=1", "host": ["{{baseUrl}}"], "path": ["search", "setlists"], "query": [{ "key": "artistName", "value": "Radiohead" }, { "key": "year", "value": "2023" }, { "key": "p", "value": "1" }] },
+            "description": "Search for setlists filtered by artist, venue, city, country, tour, date, and song."
+          }
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get a user",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/user/:userId", "host": ["{{baseUrl}}"], "path": ["user", ":userId"], "variable": [{ "key": "userId", "value": "" }] },
+            "description": "Returns a user for a given user ID."
+          }
+        },
+        {
+          "name": "Get concerts a user attended",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/user/:userId/attended?p=1", "host": ["{{baseUrl}}"], "path": ["user", ":userId", "attended"], "query": [{ "key": "p", "value": "1" }], "variable": [{ "key": "userId", "value": "" }] },
+            "description": "Returns a paginated list of setlists a user has marked as attended."
+          }
+        },
+        {
+          "name": "Get setlists a user edited",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "x-api-key", "value": "{{apiKey}}" },
+              { "key": "Accept", "value": "application/json" }
+            ],
+            "url": { "raw": "{{baseUrl}}/user/:userId/edited?p=1", "host": ["{{baseUrl}}"], "path": ["user", ":userId", "edited"], "query": [{ "key": "p", "value": "1" }], "variable": [{ "key": "userId", "value": "" }] },
+            "description": "Returns a paginated list of setlists a user has edited."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info:
+  title: setlist.fm REST Artists Countries API
+  description: 'The setlist.fm REST API provides read-only access to the world''s largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).'
+  version: '1.0'
+  contact:
+    name: setlist.fm
+    url: https://api.setlist.fm/docs/1.0/index.html
+  termsOfService: https://www.setlist.fm/help/terms
+servers:
+- url: https://api.setlist.fm/rest/1.0
+  description: setlist.fm REST API v1.0
+security:
+- apiKeyAuth: []
+tags:
+- name: Countries
+  description: The reference list of countries.
+paths:
+  /search/countries:
+    get:
+      operationId: searchCountries
+      tags:
+      - Countries
+      summary: Get all countries
+      description: Returns the complete list of countries known to setlist.fm.
+      responses:
+        '200':
+          description: The list of countries.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Countries'
+components:
+  schemas:
+    Countries:
+      type: object
+      properties:
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key issued from https://www.setlist.fm/settings/api. Passed in the `x-api-key` request header on every call.

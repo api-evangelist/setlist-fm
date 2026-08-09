@@ -1,0 +1,242 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm REST API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "x-api-key",
+        "value": "{{apiKey}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Artists", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get an artist.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/artist/:mbid",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "mbid", "value": "0bfba3d3-6a04-4779-bb0a-df07df5b0558", "type": "path", "description": "The artist's MusicBrainz MBID." }
+            ]
+          },
+          "docs": "Returns an artist for a given MusicBrainz MBID."
+        },
+        {
+          "info": { "name": "Get an artist's setlists.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/artist/:mbid/setlists?p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "mbid", "value": "0bfba3d3-6a04-4779-bb0a-df07df5b0558", "type": "path", "description": "The artist's MusicBrainz MBID." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Returns a paginated list of the setlists of a given artist."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Setlists", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get a setlist.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/setlist/:setlistId",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "setlistId", "value": "", "type": "path", "description": "The setlist ID." }
+            ]
+          },
+          "docs": "Returns the current version of a setlist for a given setlist ID."
+        },
+        {
+          "info": { "name": "Get a setlist by version.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/setlist/version/:versionId",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "versionId", "value": "", "type": "path", "description": "The version ID of the setlist." }
+            ]
+          },
+          "docs": "Returns a specific historical version of a setlist by its version ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Venues", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get a venue.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/venue/:venueId",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "venueId", "value": "", "type": "path", "description": "The venue ID." }
+            ]
+          },
+          "docs": "Returns a venue for a given venue ID."
+        },
+        {
+          "info": { "name": "Get a venue's setlists.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/venue/:venueId/setlists?p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "venueId", "value": "", "type": "path", "description": "The venue ID." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Returns a paginated list of the setlists performed at a given venue."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Cities", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get a city.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/city/:geoId",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "geoId", "value": "5357527", "type": "path", "description": "The GeoNames geoId of the city." }
+            ]
+          },
+          "docs": "Returns a city for a given GeoNames geoId."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Countries", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get all countries.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/countries",
+            "headers": [{ "name": "Accept", "value": "application/json" }]
+          },
+          "docs": "Returns the complete list of countries known to setlist.fm."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Search", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Search for artists.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/artists?artistName=Radiohead&p=1&sort=relevance",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "artistName", "value": "Radiohead", "type": "query", "description": "The artist's name." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." },
+              { "name": "sort", "value": "relevance", "type": "query", "description": "sortName or relevance." }
+            ]
+          },
+          "docs": "Search for artists by name, MBID, or Ticket Master ID."
+        },
+        {
+          "info": { "name": "Search for venues.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/venues?name=Madison Square Garden&p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "name", "value": "Madison Square Garden", "type": "query", "description": "Name of the venue." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Search for venues by name, city, state, or country."
+        },
+        {
+          "info": { "name": "Search for cities.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/cities?name=New York&p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "name", "value": "New York", "type": "query", "description": "Name of the city." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Search for cities by name, country, state, or state code."
+        },
+        {
+          "info": { "name": "Search for setlists.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/setlists?artistName=Radiohead&year=2023&p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "artistName", "value": "Radiohead", "type": "query", "description": "The artist's name." },
+              { "name": "year", "value": "2023", "type": "query", "description": "The year of the event." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Search for setlists filtered by artist, venue, city, country, tour, date, and song."
+        }
+      ]
+    },
+    {
+      "info": { "name": "User", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "Get a user.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/user/:userId",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "userId", "value": "", "type": "path", "description": "The user ID." }
+            ]
+          },
+          "docs": "Returns a user for a given user ID."
+        },
+        {
+          "info": { "name": "Get concerts a user attended.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/user/:userId/attended?p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "userId", "value": "", "type": "path", "description": "The user ID." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Returns a paginated list of setlists a user has marked as attended."
+        },
+        {
+          "info": { "name": "Get setlists a user edited.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/user/:userId/edited?p=1",
+            "headers": [{ "name": "Accept", "value": "application/json" }],
+            "params": [
+              { "name": "userId", "value": "", "type": "path", "description": "The user ID." },
+              { "name": "p", "value": "1", "type": "query", "description": "The result page number." }
+            ]
+          },
+          "docs": "Returns a paginated list of setlists a user has edited."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

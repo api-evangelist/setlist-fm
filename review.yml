@@ -1,0 +1,86 @@
+aid: setlistfm
+name: setlist.fm
+review:
+  question: Does setlist.fm expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-03'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. The setlist.fm public API is a
+    read-only, request/response REST API over HTTPS. There is no server-push
+    transport - no WebSocket, no Server-Sent Events, no webhooks - on
+    setlist.fm's own API to model. Data is retrieved by polling the REST
+    endpoints, so there is no event-driven surface in scope for AsyncAPI.
+findings:
+  summary: |
+    setlist.fm does not publish a documented public WebSocket API. setlist.fm
+    is a crowd-sourced concert setlist database owned by Live Nation
+    Entertainment (via Ticketmaster). Its only documented public interface is
+    a read-only REST API at base https://api.setlist.fm/rest/1.0, authenticated
+    with an API key sent in the `x-api-key` header, returning JSON
+    (Accept: application/json) or XML (default). All 15 documented operations
+    are HTTP GET. No realtime, bidirectional, or streaming WebSocket (ws:// or
+    wss://) endpoint is documented anywhere in the setlist.fm API reference.
+  openSource: |
+    The setlist.fm API itself is a proprietary hosted service, not open source.
+    The data is crowd-sourced and much of the city data originates from
+    Geonames.org. Numerous third-party open-source client libraries exist
+    (Python, PHP, Ruby, .NET, JavaScript), but there is no official setlist.fm
+    GitHub organization; github.com/setlist-fm returns 404.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.setlist.fm/rest/1.0
+      documented: true
+      note: Read-only REST API. API key in x-api-key header. JSON or XML responses. All operations are GET.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in the setlist.fm API reference as of the review date.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming is offered; data is retrieved by polling the REST endpoints.
+    - protocol: Webhook
+      scheme: https
+      documented: false
+      note: No outbound webhooks or event subscriptions are offered on setlist.fm's own API.
+  endpointsConfirmedRest:
+    - GET https://api.setlist.fm/rest/1.0/artist/{mbid}
+    - GET https://api.setlist.fm/rest/1.0/artist/{mbid}/setlists
+    - GET https://api.setlist.fm/rest/1.0/setlist/{setlistId}
+    - GET https://api.setlist.fm/rest/1.0/setlist/version/{versionId}
+    - GET https://api.setlist.fm/rest/1.0/venue/{venueId}
+    - GET https://api.setlist.fm/rest/1.0/venue/{venueId}/setlists
+    - GET https://api.setlist.fm/rest/1.0/city/{geoId}
+    - GET https://api.setlist.fm/rest/1.0/search/artists
+    - GET https://api.setlist.fm/rest/1.0/search/venues
+    - GET https://api.setlist.fm/rest/1.0/search/cities
+    - GET https://api.setlist.fm/rest/1.0/search/countries
+    - GET https://api.setlist.fm/rest/1.0/search/setlists
+    - GET https://api.setlist.fm/rest/1.0/user/{userId}
+    - GET https://api.setlist.fm/rest/1.0/user/{userId}/attended
+    - GET https://api.setlist.fm/rest/1.0/user/{userId}/edited
+  endpointsModeled: []
+sources:
+  - url: https://api.setlist.fm/docs/1.0/index.html
+    type: Documentation
+    note: Interactive Swagger docs. Base URL https://api.setlist.fm/rest/1.0, x-api-key auth, JSON/XML, all GET. No WebSocket mentioned.
+  - url: https://api.setlist.fm/docs/1.0/resource__1.0_setlist__setlistId_.html
+    type: APIReference
+    note: Setlist resource reference (GET /setlist/{setlistId} and /setlist/version/{versionId}).
+  - url: https://www.setlist.fm/help/terms
+    type: TermsOfService
+    note: API is free for non-commercial use only; commercial use requires contacting setlist.fm.
+  - url: https://www.setlist.fm/forum/setlistfm/setlistfm-api
+    type: Community
+    note: Rate limits discussed - standard keys ~2 req/sec and 1440/day, HTTP 429 on exceed, upgrades granted manually.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists, and setlist.fm's public API is a
+    read-only request/response REST API with no server-push transport. No
+    AsyncAPI document was created because there is no event-driven or streaming
+    surface on setlist.fm's own API to model.

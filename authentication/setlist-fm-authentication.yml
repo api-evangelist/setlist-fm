@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/setlistfm-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  description: API key issued from https://www.setlist.fm/settings/api. Passed in the `x-api-key`
+    request header on every call.
+  sources:
+  - openapi/setlistfm-openapi.yml

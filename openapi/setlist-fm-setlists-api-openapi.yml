@@ -1,0 +1,211 @@
+openapi: 3.0.3
+info:
+  title: setlist.fm REST Artists Setlists API
+  description: 'The setlist.fm REST API provides read-only access to the world''s largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).'
+  version: '1.0'
+  contact:
+    name: setlist.fm
+    url: https://api.setlist.fm/docs/1.0/index.html
+  termsOfService: https://www.setlist.fm/help/terms
+servers:
+- url: https://api.setlist.fm/rest/1.0
+  description: setlist.fm REST API v1.0
+security:
+- apiKeyAuth: []
+tags:
+- name: Setlists
+  description: Individual setlists and their historical versions.
+paths:
+  /setlist/{setlistId}:
+    get:
+      operationId: getSetlist
+      tags:
+      - Setlists
+      summary: Get a setlist
+      description: Returns the current version of a setlist for a given setlist ID.
+      parameters:
+      - name: setlistId
+        in: path
+        required: true
+        description: The setlist ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested setlist.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setlist'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /setlist/version/{versionId}:
+    get:
+      operationId: getSetlistVersion
+      tags:
+      - Setlists
+      summary: Get a setlist by version
+      description: Returns a specific historical version of a setlist. Setlists are crowd-edited; each edit produces a new immutable version identified by a version ID.
+      parameters:
+      - name: versionId
+        in: path
+        required: true
+        description: The version ID of the setlist.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The requested setlist version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Setlist'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Sets:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Set'
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Artist:
+      type: object
+      properties:
+        mbid:
+          type: string
+          description: Unique MusicBrainz Identifier of the artist.
+        name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: The setlist.fm page of the artist.
+    Setlist:
+      type: object
+      properties:
+        id:
+          type: string
+        versionId:
+          type: string
+        eventDate:
+          type: string
+          description: The date of the concert (format dd-MM-yyyy).
+        lastUpdated:
+          type: string
+          format: date-time
+        artist:
+          $ref: '#/components/schemas/Artist'
+        venue:
+          $ref: '#/components/schemas/Venue'
+        tour:
+          $ref: '#/components/schemas/Tour'
+        sets:
+          $ref: '#/components/schemas/Sets'
+        info:
+          type: string
+        url:
+          type: string
+          format: uri
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+    Set:
+      type: object
+      properties:
+        name:
+          type: string
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-api-key
+      description: API key issued from https://www.setlist.fm/settings/api. Passed in the `x-api-key` request header on every call.
