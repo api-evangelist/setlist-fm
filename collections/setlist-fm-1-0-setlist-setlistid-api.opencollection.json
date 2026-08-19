@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/setlist/{setlistId} API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/setlist/{setlistId}",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": ".",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/setlist/:setlistId",
+            "params": [
+              {
+                "name": "setlistId",
+                "value": "",
+                "type": "path",
+                "description": "the setlist id"
+              }
+            ]
+          },
+          "docs": "<p>\nReturns the current version of a setlist. E.g. if you pass the id of a setlist that got edited since you last\naccessed it, you'll get the current version.\n</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

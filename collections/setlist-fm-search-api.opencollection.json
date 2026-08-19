@@ -1,0 +1,281 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm REST Artists Search API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for artists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/artists",
+            "params": [
+              {
+                "name": "artistMbid",
+                "value": "",
+                "type": "query",
+                "description": "The artist's MusicBrainz MBID."
+              },
+              {
+                "name": "artistName",
+                "value": "",
+                "type": "query",
+                "description": "The artist's name."
+              },
+              {
+                "name": "artistTmid",
+                "value": "",
+                "type": "query",
+                "description": "The artist's Ticket Master ID (deprecated)."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The sort of the result, either sortName or relevance."
+              }
+            ]
+          },
+          "docs": "Search for artists by name, MBID, or Ticket Master ID."
+        },
+        {
+          "info": {
+            "name": "Search for venues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/venues",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the venue."
+              },
+              {
+                "name": "cityName",
+                "value": "",
+                "type": "query",
+                "description": "Name of the city the venue is in."
+              },
+              {
+                "name": "cityId",
+                "value": "",
+                "type": "query",
+                "description": "The GeoNames geoId of the city."
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "The code of the state the venue is in."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state the venue is in."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "The country the venue is in."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page."
+              }
+            ]
+          },
+          "docs": "Search for venues by name, city, state, country, or geo identifiers."
+        },
+        {
+          "info": {
+            "name": "Search for cities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/cities",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Name of the city."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "The city's country (ISO code)."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The city's state."
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "The code of the city's state."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page."
+              }
+            ]
+          },
+          "docs": "Search for cities by name, country, state, or state code."
+        },
+        {
+          "info": {
+            "name": "Get all countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/countries"
+          },
+          "docs": "Returns the complete list of countries known to setlist.fm."
+        },
+        {
+          "info": {
+            "name": "Search for setlists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/search/setlists",
+            "params": [
+              {
+                "name": "artistMbid",
+                "value": "",
+                "type": "query",
+                "description": "The artist's MusicBrainz MBID."
+              },
+              {
+                "name": "artistName",
+                "value": "",
+                "type": "query",
+                "description": "The artist's name."
+              },
+              {
+                "name": "cityId",
+                "value": "",
+                "type": "query",
+                "description": "The GeoNames geoId of the city."
+              },
+              {
+                "name": "cityName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the city."
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "The ISO country code."
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The date of the event (format dd-MM-yyyy)."
+              },
+              {
+                "name": "lastFm",
+                "value": "",
+                "type": "query",
+                "description": "The event's Last.fm event ID (deprecated)."
+              },
+              {
+                "name": "lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "Only return setlists updated after this date (yyyyMMddHHmmss)."
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "The state."
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "The state code."
+              },
+              {
+                "name": "tourName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the tour."
+              },
+              {
+                "name": "venueId",
+                "value": "",
+                "type": "query",
+                "description": "The venue ID."
+              },
+              {
+                "name": "venueName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the venue."
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "The year of the event."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page."
+              }
+            ]
+          },
+          "docs": "Search for setlists filtered by artist, venue, city, country, tour, date, song, and other facets. This is the primary discovery endpoint."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

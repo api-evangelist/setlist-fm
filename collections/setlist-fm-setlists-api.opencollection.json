@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm REST Artists Setlists API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Setlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a setlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/setlist/:setlistId",
+            "params": [
+              {
+                "name": "setlistId",
+                "value": "",
+                "type": "path",
+                "description": "The setlist ID."
+              }
+            ]
+          },
+          "docs": "Returns the current version of a setlist for a given setlist ID."
+        },
+        {
+          "info": {
+            "name": "Get a setlist by version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/setlist/version/:versionId",
+            "params": [
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "path",
+                "description": "The version ID of the setlist."
+              }
+            ]
+          },
+          "docs": "Returns a specific historical version of a setlist. Setlists are crowd-edited; each edit produces a new immutable version identified by a version ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

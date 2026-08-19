@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/search/countries API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/search/countries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a complete list of all supported countries.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/search/countries"
+          },
+          "docs": "Get a complete list of all supported countries."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

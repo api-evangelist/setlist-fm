@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/venue/{venueId}/setlists API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/venue/{venueId}/setlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": ".",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/venue/:venueId/setlists",
+            "params": [
+              {
+                "name": "venueId",
+                "value": "",
+                "type": "path",
+                "description": "the id of the venue"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page"
+              }
+            ]
+          },
+          "docs": "<p>\nGet setlists for a specific venue.\n</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

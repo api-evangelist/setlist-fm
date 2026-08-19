@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/search/setlists API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/search/setlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for setlists.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/search/setlists",
+            "params": [
+              {
+                "name": "artistMbid",
+                "value": "",
+                "type": "query",
+                "description": "the artist's Musicbrainz Identifier (mbid)"
+              },
+              {
+                "name": "artistName",
+                "value": "",
+                "type": "query",
+                "description": "the artist's name"
+              },
+              {
+                "name": "artistTmid",
+                "value": "",
+                "type": "query",
+                "description": "the artist's Ticketmaster Identifier (tmid) (deprecated)"
+              },
+              {
+                "name": "cityId",
+                "value": "",
+                "type": "query",
+                "description": "the city's geoId"
+              },
+              {
+                "name": "cityName",
+                "value": "",
+                "type": "query",
+                "description": "the name of the city"
+              },
+              {
+                "name": "countryCode",
+                "value": "",
+                "type": "query",
+                "description": "the country code"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "the date of the event (format dd-MM-yyyy)"
+              },
+              {
+                "name": "lastFm",
+                "value": "",
+                "type": "query",
+                "description": "the event's Last.fm Event ID (deprecated)"
+              },
+              {
+                "name": "lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "the date and time (UTC) when this setlist was last updated (format yyyyMMddHHmmss) - either edited or\nreverted. search will return setlists that were updated on or after this date"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "the state"
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "the state code"
+              },
+              {
+                "name": "tourName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "venueId",
+                "value": "",
+                "type": "query",
+                "description": "the venue id"
+              },
+              {
+                "name": "venueName",
+                "value": "",
+                "type": "query",
+                "description": "the name of the venue"
+              },
+              {
+                "name": "year",
+                "value": "",
+                "type": "query",
+                "description": "the year of the event"
+              }
+            ]
+          },
+          "docs": "Search for setlists."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

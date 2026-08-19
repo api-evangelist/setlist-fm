@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/search/artists API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/search/artists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for artists.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/search/artists",
+            "params": [
+              {
+                "name": "artistMbid",
+                "value": "",
+                "type": "query",
+                "description": "the artist's Musicbrainz Identifier (mbid)"
+              },
+              {
+                "name": "artistName",
+                "value": "",
+                "type": "query",
+                "description": "the artist's name"
+              },
+              {
+                "name": "artistTmid",
+                "value": "",
+                "type": "query",
+                "description": "the artist's Ticketmaster Identifier (tmid) (deprecated)"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page you'd like to have"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "the sort of the result, either sortName (default) or relevance"
+              }
+            ]
+          },
+          "docs": "Search for artists."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

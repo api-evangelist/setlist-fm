@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/user/{userId}/edited API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/user/{userId}/edited",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": ".",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/user/:userId/edited",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "the user's userId"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page"
+              }
+            ]
+          },
+          "docs": "<p>\nGet a list of setlists of concerts edited by a user. The list contains the current version, not the version\nedited.\n</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

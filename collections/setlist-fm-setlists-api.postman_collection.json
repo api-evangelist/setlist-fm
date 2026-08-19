@@ -1,0 +1,348 @@
+{
+  "item": [
+    {
+      "id": "5fc54ef9-b353-407b-8e98-33d51f63da03",
+      "name": "Setlists",
+      "description": {
+        "content": "Individual setlists and their historical versions.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3b9b04c6-0dbf-42a0-8b0e-c438628728eb",
+          "name": "Get a setlist",
+          "request": {
+            "name": "Get a setlist",
+            "description": {
+              "content": "Returns the current version of a setlist for a given setlist ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "setlist",
+                ":setlistId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "setlistId",
+                  "description": "(Required) The setlist ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "597b2c70-2893-4466-ac06-4fb895ab0e7f",
+              "name": "The requested setlist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "setlist",
+                    ":setlistId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "setlistId",
+                      "description": "(Required) The setlist ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"versionId\": \"string\",\n  \"eventDate\": \"string\",\n  \"lastUpdated\": \"1992-11-26T21:48:29.891Z\",\n  \"artist\": {\n    \"mbid\": \"string\",\n    \"name\": \"string\",\n    \"sortName\": \"string\",\n    \"disambiguation\": \"string\",\n    \"url\": \"https://tGCrLFKMvBCjVbshxePComGfwE.hgllEF14cTnJsdLcEJ4cxI,XrfzRaCipLd\"\n  },\n  \"venue\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"https://iuMmuaWZfxDUGFXVg.gxtfrMZLUrYe4u2tCCIyjbfU8KtRUC.vWwtTwtwnhN3uCwxA\",\n    \"city\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"stateCode\": \"string\",\n      \"state\": \"string\",\n      \"coords\": {\n        \"lat\": 6232.717340133824,\n        \"long\": 3811.3186196049355\n      },\n      \"country\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  \"tour\": {\n    \"name\": \"string\"\n  },\n  \"sets\": {\n    \"set\": [\n      {\n        \"name\": \"string\",\n        \"encore\": 6962,\n        \"song\": [\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": false\n          },\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"encore\": 3086,\n        \"song\": [\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": true\n          },\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": true\n          }\n        ]\n      }\n    ]\n  },\n  \"info\": \"string\",\n  \"url\": \"http://kDbsfXwDxcEQWffJhENjcpJuSE.wdql2Yay0kzqzMOj5+1qaT\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "abaaeebc-21df-449a-b3ba-59488b62eea3",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "setlist",
+                    ":setlistId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "setlistId",
+                      "description": "(Required) The setlist ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2034,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bc20f0c0-45bc-4d7e-98fe-7e4fc3b93056",
+          "name": "Get a setlist by version",
+          "request": {
+            "name": "Get a setlist by version",
+            "description": {
+              "content": "Returns a specific historical version of a setlist. Setlists are crowd-edited; each edit produces a new immutable version identified by a version ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "setlist",
+                "version",
+                ":versionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "versionId",
+                  "description": "(Required) The version ID of the setlist."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ddf58506-7f04-4c83-8c2d-1e8647b00a57",
+              "name": "The requested setlist version.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "setlist",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "versionId",
+                      "description": "(Required) The version ID of the setlist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"versionId\": \"string\",\n  \"eventDate\": \"string\",\n  \"lastUpdated\": \"1950-04-18T20:49:11.191Z\",\n  \"artist\": {\n    \"mbid\": \"string\",\n    \"name\": \"string\",\n    \"sortName\": \"string\",\n    \"disambiguation\": \"string\",\n    \"url\": \"https://yCRc.ssqcOZOKjjoGmYD\"\n  },\n  \"venue\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"url\": \"http://eJmHGnfJWmyAjzHaMFUlsA.jvliPYi+wmqIhfcxVD\",\n    \"city\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"stateCode\": \"string\",\n      \"state\": \"string\",\n      \"coords\": {\n        \"lat\": 3851.0679361079747,\n        \"long\": 2506.9017153043405\n      },\n      \"country\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      }\n    }\n  },\n  \"tour\": {\n    \"name\": \"string\"\n  },\n  \"sets\": {\n    \"set\": [\n      {\n        \"name\": \"string\",\n        \"encore\": 8175,\n        \"song\": [\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": true\n          },\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": false\n          }\n        ]\n      },\n      {\n        \"name\": \"string\",\n        \"encore\": 5238,\n        \"song\": [\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": false\n          },\n          {\n            \"name\": \"string\",\n            \"info\": \"string\",\n            \"cover\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"tape\": true\n          }\n        ]\n      }\n    ]\n  },\n  \"info\": \"string\",\n  \"url\": \"http://iRKIRwKkIxOaKcbkIbWJfvVOWv.bmknPAudM4nw.NQXPCzyERGPZYt+iyaXg0F.KcZ\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "913637f6-5223-4216-bfdc-f61e996d047a",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "setlist",
+                    "version",
+                    ":versionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "versionId",
+                      "description": "(Required) The version ID of the setlist."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2034,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.setlist.fm/rest/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "acbebc7a-67ff-4b23-80f7-ae8a35cd72d9",
+    "name": "setlist.fm REST Artists Setlists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).\n\nContact Support:\n Name: setlist.fm",
+      "type": "text/plain"
+    }
+  }
+}

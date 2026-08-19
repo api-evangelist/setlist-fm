@@ -1,0 +1,129 @@
+{
+  "item": [
+    {
+      "id": "9d660c9e-03de-47c0-a3d0-d4efeaab2a8c",
+      "name": "Countries",
+      "description": {
+        "content": "The reference list of countries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f1b18882-9ca3-49bc-85fa-ed6e16e8df53",
+          "name": "Get all countries",
+          "request": {
+            "name": "Get all countries",
+            "description": {
+              "content": "Returns the complete list of countries known to setlist.fm.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8cf7918a-0239-4609-8faf-991ca532afe1",
+              "name": "The list of countries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"country\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"total\": 2620,\n  \"page\": 2821,\n  \"itemsPerPage\": 5806\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.setlist.fm/rest/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1c108aa4-01b3-4278-bffa-22da48b9318e",
+    "name": "setlist.fm REST Artists Countries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).\n\nContact Support:\n Name: setlist.fm",
+      "type": "text/plain"
+    }
+  }
+}

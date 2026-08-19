@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/search/cities API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/search/cities",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for a city.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/search/cities",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "the city's country"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "name of the city"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page you'd like to have"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "state the city lies in"
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "state code the city lies in"
+              }
+            ]
+          },
+          "docs": "Search for a city."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

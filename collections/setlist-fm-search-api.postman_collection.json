@@ -1,0 +1,1085 @@
+{
+  "item": [
+    {
+      "id": "78eea78f-f0fc-47cc-8641-e1f67aafe6a4",
+      "name": "Search",
+      "description": {
+        "content": "Full-text search across artists, venues, cities, and setlists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7e107b5-c4f3-4395-a821-0e6205b77e19",
+          "name": "Search for artists",
+          "request": {
+            "name": "Search for artists",
+            "description": {
+              "content": "Search for artists by name, MBID, or Ticket Master ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "artists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "artistMbid",
+                  "value": "<string>",
+                  "description": "The artist's MusicBrainz MBID."
+                },
+                {
+                  "disabled": false,
+                  "key": "artistName",
+                  "value": "<string>",
+                  "description": "The artist's name."
+                },
+                {
+                  "disabled": false,
+                  "key": "artistTmid",
+                  "value": "<integer>",
+                  "description": "The artist's Ticket Master ID (deprecated)."
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "The sort of the result, either sortName or relevance."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0f10d615-a024-441d-94aa-68253cb715e9",
+              "name": "A paginated list of matching artists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "artists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "artistMbid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "artistName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "artistTmid",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"artist\": [\n    {\n      \"mbid\": \"string\",\n      \"name\": \"string\",\n      \"sortName\": \"string\",\n      \"disambiguation\": \"string\",\n      \"url\": \"https://JgoOcEbvAddYPVSyfRlGKljWasT.qfyRNeh1NSXxON\"\n    },\n    {\n      \"mbid\": \"string\",\n      \"name\": \"string\",\n      \"sortName\": \"string\",\n      \"disambiguation\": \"string\",\n      \"url\": \"https://qvSIumIqjjOyNnpjRp.okepNct2Qw9tPkaqwvcFWlIQNtiO2+b11g1knt-LJJKSSuLXIpdD7W34o5Ki5ep8gEYF55d1SGuR\"\n    }\n  ],\n  \"total\": 2081,\n  \"page\": 9903,\n  \"itemsPerPage\": 7608\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "84145493-4fe0-42b7-9095-734038a6a382",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "artists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "artistMbid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "artistName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "artistTmid",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2955,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d464cd2-4d6f-49a9-ad23-ffddc807514b",
+          "name": "Search for venues",
+          "request": {
+            "name": "Search for venues",
+            "description": {
+              "content": "Search for venues by name, city, state, country, or geo identifiers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "venues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the venue."
+                },
+                {
+                  "disabled": false,
+                  "key": "cityName",
+                  "value": "<string>",
+                  "description": "Name of the city the venue is in."
+                },
+                {
+                  "disabled": false,
+                  "key": "cityId",
+                  "value": "<string>",
+                  "description": "The GeoNames geoId of the city."
+                },
+                {
+                  "disabled": false,
+                  "key": "stateCode",
+                  "value": "<string>",
+                  "description": "The code of the state the venue is in."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "The state the venue is in."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "The country the venue is in."
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea5f2207-8b67-4e66-b4a5-225c6c494e72",
+              "name": "A paginated list of matching venues.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "venues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"venue\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"http://PYXtQPuSQgnBUqsmKvy.fdcMQao4LdRANmjYDcT9\",\n      \"city\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"stateCode\": \"string\",\n        \"state\": \"string\",\n        \"coords\": {\n          \"lat\": 5367.145649340795,\n          \"long\": 2487.452172976187\n        },\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"url\": \"https://NPFfYUPRFYYoEOBrcHkuorqMGMBWv.suaRDfbu7H0zS+O+cLK5V+PQIGbrUyAoIuRATP\",\n      \"city\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"stateCode\": \"string\",\n        \"state\": \"string\",\n        \"coords\": {\n          \"lat\": 7493.716226043853,\n          \"long\": 4547.389158786492\n        },\n        \"country\": {\n          \"code\": \"string\",\n          \"name\": \"string\"\n        }\n      }\n    }\n  ],\n  \"total\": 4579,\n  \"page\": 4326,\n  \"itemsPerPage\": 9060\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fba0b077-b7bb-4f40-8571-618d2fc800a2",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "venues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2955,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5f0a0623-8478-4a15-a233-292af7227390",
+          "name": "Search for cities",
+          "request": {
+            "name": "Search for cities",
+            "description": {
+              "content": "Search for cities by name, country, state, or state code.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "cities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Name of the city."
+                },
+                {
+                  "disabled": false,
+                  "key": "country",
+                  "value": "<string>",
+                  "description": "The city's country (ISO code)."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "The city's state."
+                },
+                {
+                  "disabled": false,
+                  "key": "stateCode",
+                  "value": "<string>",
+                  "description": "The code of the city's state."
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2513b128-0768-47c5-9e3b-0c5ab40827ca",
+              "name": "A paginated list of matching cities.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "cities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cities\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"stateCode\": \"string\",\n      \"state\": \"string\",\n      \"coords\": {\n        \"lat\": 4182.541629725654,\n        \"long\": 9187.172675817077\n      },\n      \"country\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"stateCode\": \"string\",\n      \"state\": \"string\",\n      \"coords\": {\n        \"lat\": 9885.852604627307,\n        \"long\": 3362.5808945087388\n      },\n      \"country\": {\n        \"code\": \"string\",\n        \"name\": \"string\"\n      }\n    }\n  ],\n  \"total\": 7008,\n  \"page\": 5758,\n  \"itemsPerPage\": 4052\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cd4de740-bff3-466d-98c8-2e36f0171c93",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "cities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "country",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2955,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "82b87554-7683-445e-9578-be4ee4a1923a",
+          "name": "Get all countries",
+          "request": {
+            "name": "Get all countries",
+            "description": {
+              "content": "Returns the complete list of countries known to setlist.fm.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "countries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab9913be-d599-4b14-997f-5dc4b33138b6",
+              "name": "The list of countries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "countries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"country\": [\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"total\": 9154,\n  \"page\": 1590,\n  \"itemsPerPage\": 8624\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb932114-fef4-4ca9-96af-fe9a3e09b99e",
+          "name": "Search for setlists",
+          "request": {
+            "name": "Search for setlists",
+            "description": {
+              "content": "Search for setlists filtered by artist, venue, city, country, tour, date, song, and other facets. This is the primary discovery endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "setlists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "artistMbid",
+                  "value": "<string>",
+                  "description": "The artist's MusicBrainz MBID."
+                },
+                {
+                  "disabled": false,
+                  "key": "artistName",
+                  "value": "<string>",
+                  "description": "The artist's name."
+                },
+                {
+                  "disabled": false,
+                  "key": "cityId",
+                  "value": "<string>",
+                  "description": "The GeoNames geoId of the city."
+                },
+                {
+                  "disabled": false,
+                  "key": "cityName",
+                  "value": "<string>",
+                  "description": "The name of the city."
+                },
+                {
+                  "disabled": false,
+                  "key": "countryCode",
+                  "value": "<string>",
+                  "description": "The ISO country code."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "The date of the event (format dd-MM-yyyy)."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastFm",
+                  "value": "<integer>",
+                  "description": "The event's Last.fm event ID (deprecated)."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastUpdated",
+                  "value": "<string>",
+                  "description": "Only return setlists updated after this date (yyyyMMddHHmmss)."
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>",
+                  "description": "The state."
+                },
+                {
+                  "disabled": false,
+                  "key": "stateCode",
+                  "value": "<string>",
+                  "description": "The state code."
+                },
+                {
+                  "disabled": false,
+                  "key": "tourName",
+                  "value": "<string>",
+                  "description": "The name of the tour."
+                },
+                {
+                  "disabled": false,
+                  "key": "venueId",
+                  "value": "<string>",
+                  "description": "The venue ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "venueName",
+                  "value": "<string>",
+                  "description": "The name of the venue."
+                },
+                {
+                  "disabled": false,
+                  "key": "year",
+                  "value": "<integer>",
+                  "description": "The year of the event."
+                },
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1d077f8a-fc86-42a3-a08d-a117d2a3e31d",
+              "name": "A paginated list of matching setlists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "setlists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "artistMbid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "artistName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastFm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastUpdated",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tourName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setlist\": [\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"1955-11-06T16:34:17.365Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"https://uMtbQXeLAJfcmCLLcySqQ.qzroXWzojYfTF9tzyr0GC062yBiiDFXaKC\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://KNvoIojfiTLhhybPUEoRoySnjYLxkp.emk7rVdRtwYnFN57\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 5920,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 6016,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"http://WFstGUbVmiqxtNiJA.bkyhQ.dVzqyh\"\n    },\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2024-02-20T17:19:03.715Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"https://WYeBURuoApyPzqfCHCmwGknyWDSa.dtwsFBBJT1UcNR.oG85UGlH\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://dQihHGmKIvywMgpp.aypoCJ\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 4422,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 3637,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"http://EehdlXavMBuFyisWVpRhMyLwzHPzVWN.utwubeiZF\"\n    }\n  ],\n  \"total\": 9261,\n  \"page\": 3159,\n  \"itemsPerPage\": 858\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9a4d4908-abe1-43cd-b527-ac0249d678c1",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "setlists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "artistMbid",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "artistName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cityName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "countryCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastFm",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lastUpdated",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stateCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tourName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "venueName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "year",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 2955,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.setlist.fm/rest/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f6e187ec-6e20-4cf0-a98e-c95fcb5f4865",
+    "name": "setlist.fm REST Artists Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).\n\nContact Support:\n Name: setlist.fm",
+      "type": "text/plain"
+    }
+  }
+}

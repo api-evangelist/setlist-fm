@@ -1,0 +1,365 @@
+{
+  "item": [
+    {
+      "id": "7d387b32-5f73-4311-b592-4d642012fe98",
+      "name": "Artists",
+      "description": {
+        "content": "Artists keyed by MusicBrainz MBID and their setlists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "59d220b7-0a3e-4d60-a1f4-eacc467d22bd",
+          "name": "Get an artist",
+          "request": {
+            "name": "Get an artist",
+            "description": {
+              "content": "Returns an artist for a given MusicBrainz MBID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artist",
+                ":mbid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mbid",
+                  "description": "(Required) A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b66cfca-6221-423c-a87d-47b71ed2c250",
+              "name": "The requested artist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artist",
+                    ":mbid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mbid",
+                      "description": "(Required) A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"mbid\": \"string\",\n  \"name\": \"string\",\n  \"sortName\": \"string\",\n  \"disambiguation\": \"string\",\n  \"url\": \"https://OeqNm.osmkzNCz-84ZSxWtMM8qTmln\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df30495f-e2b3-44c9-b039-46b0cb8f1248",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artist",
+                    ":mbid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mbid",
+                      "description": "(Required) A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3450,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "47cd342a-7282-42ac-9e96-64206c48e396",
+          "name": "Get an artist's setlists",
+          "request": {
+            "name": "Get an artist's setlists",
+            "description": {
+              "content": "Returns a paginated list of the setlists of a given artist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "artist",
+                ":mbid",
+                "setlists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mbid",
+                  "description": "(Required) A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a26094bc-9ee5-49fb-8111-a4ebd66e65e1",
+              "name": "A paginated list of setlists for the artist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artist",
+                    ":mbid",
+                    "setlists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mbid",
+                      "description": "(Required) A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setlist\": [\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2000-08-19T16:55:34.900Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"http://zRjPVKWsFertsaZeMlwsFl.ltjqAbBhISmfLMCoGNxBmgNOevFAd1+De,LAk9F4LEctyX9+bWTTk1\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://iCJHoZssgIHLGNARfVBzxcpSJWPFpB.epmpLahsm2-tpiuXkPGYV9UIxHiS\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 2088,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 7965,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"https://yOUFvYzKHB.rjzL,YGhvKPTJH7klajh+MkD5vMSv3FJx\"\n    },\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2026-07-30T20:05:41.517Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"http://XxmYHBTVtejwKqJnnQtssvdm.abdpm4Uj2jdsICpIOsS\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://NjVBrIvrMxlbtqvEdsV.vsbrTcysDZNpOd2bHFzomQxaFEUSqp8c\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 6613,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 8166,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"http://sZcAEYpQnYGTFuUydizNe.auOkbfTrfw0swq76x8\"\n    }\n  ],\n  \"total\": 7647,\n  \"page\": 2107,\n  \"itemsPerPage\": 5909\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "245be5c8-16f0-4ebb-bba2-53dceabaa931",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "artist",
+                    ":mbid",
+                    "setlists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mbid",
+                      "description": "(Required) A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 3450,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.setlist.fm/rest/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5c3577eb-b0e3-4525-a38b-87d959fd2a80",
+    "name": "setlist.fm REST Artists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).\n\nContact Support:\n Name: setlist.fm",
+      "type": "text/plain"
+    }
+  }
+}

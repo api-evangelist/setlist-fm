@@ -1,0 +1,533 @@
+{
+  "item": [
+    {
+      "id": "7d0dd4c2-958c-415a-9aaf-cf9bd24a86e7",
+      "name": "User",
+      "description": {
+        "content": "Community members and their attended/edited setlists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0b5ecfa-8fc4-43ad-8177-d6cd0e5b2d07",
+          "name": "Get a user",
+          "request": {
+            "name": "Get a user",
+            "description": {
+              "content": "Returns a user for a given user ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) The user ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "71cbc67c-79de-4c9a-adb4-6df88832790b",
+              "name": "The requested user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The user ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userId\": \"string\",\n  \"fullname\": \"string\",\n  \"lastFm\": \"string\",\n  \"mySpace\": \"string\",\n  \"twitter\": \"string\",\n  \"flickr\": \"string\",\n  \"website\": \"string\",\n  \"about\": \"string\",\n  \"url\": \"http://OHzHMcNi.zntzhDlO,w-nn7D0J3NdvrgsoaM2RWcac.+Zn.x2n1IZHG,kBFglXaEzwpbkTWt4+-yQpwQE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d10f6fdd-266e-4d21-ad9b-a7c044f1a478",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The user ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4640,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61943c11-c084-40d0-945c-19f2ea6f6d3e",
+          "name": "Get concerts a user attended",
+          "request": {
+            "name": "Get concerts a user attended",
+            "description": {
+              "content": "Returns a paginated list of setlists a user has marked as attended.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":userId",
+                "attended"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) The user ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c011b3cf-c5dc-43df-bcf6-e4fccc173220",
+              "name": "A paginated list of attended setlists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId",
+                    "attended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The user ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setlist\": [\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2004-08-06T06:47:25.559Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"http://KgOKmWrFiHWSiFePMMl.hfiY86y4hCAO1qy,+u8RLnLKlzz34II418p.kUMWFnWB,nlcK\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://qJdPuPPKgyqYBljJBa.zeuWzLKs..X31gjRSug+wMdggmbZCK5dkDtHlD-UP.PYCrYexGL1Xb\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 3631,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 3160,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"http://GzPhQRH.tpbzswkdCDpl,jLCRVTCnqmfu,G0FzUVXQ\"\n    },\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2022-07-07T03:03:45.637Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"https://rjHAYQXeYoTrIiOSu.pulfTOAa7J2XCqOOezegEAxY5n,6Z\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://XcKPdYTACIyWVjuFibxmP.xghr8d,D7PN97GFAsu,A5MfV-s7lcH\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 7245,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 2809,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"https://RaYeRnFQtAdxZkzMIRCpJNvjdMCiUwtG.jqhq7k-6SmPqJ.dr-Uac\"\n    }\n  ],\n  \"total\": 1861,\n  \"page\": 9807,\n  \"itemsPerPage\": 2138\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0307f39a-7031-4eab-9d95-a35a505741df",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId",
+                    "attended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The user ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4640,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fb62a50-13fe-4b85-873b-15fd9c4cb6f4",
+          "name": "Get setlists a user edited",
+          "request": {
+            "name": "Get setlists a user edited",
+            "description": {
+              "content": "Returns a paginated list of setlists a user has edited.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                ":userId",
+                "edited"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) The user ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "97437d98-88b7-4080-b798-0c090e5b2304",
+              "name": "A paginated list of edited setlists.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId",
+                    "edited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The user ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setlist\": [\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2015-05-25T01:34:18.371Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"http://aKctGBhfHDruZeAUPyIGAorSzYLBYcsS.qucASEO8Ls.Pim8eWzsmclj0sk4gzRlYltAU\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://VSIqnNbqBFsMoTXcUBORsuuGbtsiQ.fjyzdjKmV5vzTkVCDsu4W8q+azOZ\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 5632,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 529,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"https://dBDuB.lddB,HSpDSFZ3a3ZtjUyDiwU3SeM\"\n    },\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"1983-12-11T03:40:49.378Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"http://syuORJHWTAjiFnEwfhHMIOmgY.waoxqPYfKtV1zHi2d7exT55dpMcYiChuS.auytS1sfYdjHyEt9vQCA138M36\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"https://YvUXPiJOFRVcKPCvR.qnlSzu.FEpr\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 6480,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 9352,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"https://foQCWZVhaouGMPYPVgkCLnJwxTzFPa.uxUXw0iQAPKSHXYQ5rCETRJ,wB\"\n    }\n  ],\n  \"total\": 6698,\n  \"page\": 1730,\n  \"itemsPerPage\": 3404\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a32e611-7fdb-4f16-a07b-528865ef10ec",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    ":userId",
+                    "edited"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) The user ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 4640,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.setlist.fm/rest/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "25b4c329-f936-4e55-90fc-440f94807ae2",
+    "name": "setlist.fm REST Artists User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).\n\nContact Support:\n Name: setlist.fm",
+      "type": "text/plain"
+    }
+  }
+}

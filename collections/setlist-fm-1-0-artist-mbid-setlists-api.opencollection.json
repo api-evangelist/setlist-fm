@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/artist/{mbid}/setlists API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/artist/{mbid}/setlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": ".",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/artist/:mbid/setlists",
+            "params": [
+              {
+                "name": "mbid",
+                "value": "",
+                "type": "path",
+                "description": "the Musicbrainz MBID of the artist"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page"
+              }
+            ]
+          },
+          "docs": "<p>\nGet a list of an artist's setlists.\n</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

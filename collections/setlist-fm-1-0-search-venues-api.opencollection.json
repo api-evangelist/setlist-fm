@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm /1.0/artist/{mbid} /1.0/artist/{mbid} /1.0/search/venues API",
+    "version": "1.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "/1.0/search/venues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for venues.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/1.0/search/venues",
+            "params": [
+              {
+                "name": "cityId",
+                "value": "",
+                "type": "query",
+                "description": "the city's geoId"
+              },
+              {
+                "name": "cityName",
+                "value": "",
+                "type": "query",
+                "description": "name of the city where the venue is located"
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "the city's country"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "name of the venue"
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "the number of the result page you'd like to have"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query",
+                "description": "the city's state"
+              },
+              {
+                "name": "stateCode",
+                "value": "",
+                "type": "query",
+                "description": "the city's state code"
+              }
+            ]
+          },
+          "docs": "Search for venues."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

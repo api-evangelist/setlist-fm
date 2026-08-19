@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm REST Artists User API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/user/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              }
+            ]
+          },
+          "docs": "Returns a user for a given user ID."
+        },
+        {
+          "info": {
+            "name": "Get concerts a user attended",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/user/:userId/attended",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page to return."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of setlists a user has marked as attended."
+        },
+        {
+          "info": {
+            "name": "Get setlists a user edited",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/user/:userId/edited",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The user ID."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page to return."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of setlists a user has edited."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

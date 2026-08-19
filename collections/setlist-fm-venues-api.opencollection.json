@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "setlist.fm REST Artists Venues API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Venues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a venue",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/venue/:venueId",
+            "params": [
+              {
+                "name": "venueId",
+                "value": "",
+                "type": "path",
+                "description": "The venue ID."
+              }
+            ]
+          },
+          "docs": "Returns a venue for a given venue ID."
+        },
+        {
+          "info": {
+            "name": "Get a venue's setlists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.setlist.fm/rest/1.0/venue/:venueId/setlists",
+            "params": [
+              {
+                "name": "venueId",
+                "value": "",
+                "type": "path",
+                "description": "The venue ID."
+              },
+              {
+                "name": "p",
+                "value": "",
+                "type": "query",
+                "description": "The number of the result page to return."
+              }
+            ]
+          },
+          "docs": "Returns a paginated list of the setlists performed at a given venue."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

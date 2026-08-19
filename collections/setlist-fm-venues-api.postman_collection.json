@@ -1,0 +1,365 @@
+{
+  "item": [
+    {
+      "id": "0383cc66-3600-4f4e-a17d-f20a1e323c2d",
+      "name": "Venues",
+      "description": {
+        "content": "Concert venues and the setlists performed at them.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "91d1068c-b1e4-41c6-8b12-d2a450e84afb",
+          "name": "Get a venue",
+          "request": {
+            "name": "Get a venue",
+            "description": {
+              "content": "Returns a venue for a given venue ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "venue",
+                ":venueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "venueId",
+                  "description": "(Required) The venue ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19d8c94b-be32-4ea5-b2cc-8fcc43467b8f",
+              "name": "The requested venue.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venue",
+                    ":venueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "venueId",
+                      "description": "(Required) The venue ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"url\": \"http://qgqpyrzpTNJDYdZs.qhY,sUhI5s\",\n  \"city\": {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"stateCode\": \"string\",\n    \"state\": \"string\",\n    \"coords\": {\n      \"lat\": 9680.062445004252,\n      \"long\": 5938.248374398325\n    },\n    \"country\": {\n      \"code\": \"string\",\n      \"name\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3098ca81-4161-44df-94cd-726291b15ceb",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venue",
+                    ":venueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "venueId",
+                      "description": "(Required) The venue ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5541,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c9c262e-75d2-42e2-9abd-5c5fe9d0de91",
+          "name": "Get a venue's setlists",
+          "request": {
+            "name": "Get a venue's setlists",
+            "description": {
+              "content": "Returns a paginated list of the setlists performed at a given venue.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "venue",
+                ":venueId",
+                "setlists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "p",
+                  "value": "1",
+                  "description": "The number of the result page to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "venueId",
+                  "description": "(Required) The venue ID."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53fbdfe5-4e9d-409d-9ce2-a94c2def9c88",
+              "name": "A paginated list of setlists for the venue.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venue",
+                    ":venueId",
+                    "setlists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "venueId",
+                      "description": "(Required) The venue ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"setlist\": [\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"1957-12-16T01:43:54.019Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"https://LXeyIPIoEmbEisSlnqvcKrFHmQKA.gcjuqXUnsmasfISLb4Bn8jOBNTvhRe.77,2dgqf,9BB.AmNewOZYCQ\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://MkSHtOtXdKvzZLPuHYHKFtLVJKVqOgn.tmpIsQ1AoTQ9l5WUS6lZKiFg5fRGUs3PO,\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 7075,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 251,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"https://VFzocUrpdhmatXpG.gzQMAS47amfyaeSgOcsNMzguDWPaDjpPcBRv5jCjpFtevlv7Iiz3qoW62\"\n    },\n    {\n      \"id\": \"string\",\n      \"versionId\": \"string\",\n      \"eventDate\": \"string\",\n      \"lastUpdated\": \"2019-05-31T06:10:01.353Z\",\n      \"artist\": {\n        \"mbid\": \"string\",\n        \"name\": \"string\",\n        \"sortName\": \"string\",\n        \"disambiguation\": \"string\",\n        \"url\": \"http://FdcnTYzFlMWyisjEUexemmWxhJjZyJg.oljWLRW,ZF7pKwbrurxmuZTDlWsoF2+syr\"\n      },\n      \"venue\": {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"url\": \"http://pcPwLLyJp.tbRTS-xt-kUhnwQrFqO4\",\n        \"city\": {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"stateCode\": \"string\",\n          \"state\": \"string\",\n          \"coords\": {\n            \"lat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"long\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"country\": {\n            \"code\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"tour\": {\n        \"name\": \"string\"\n      },\n      \"sets\": {\n        \"set\": [\n          {\n            \"name\": \"string\",\n            \"encore\": 1299,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          {\n            \"name\": \"string\",\n            \"encore\": 4063,\n            \"song\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          }\n        ]\n      },\n      \"info\": \"string\",\n      \"url\": \"https://lGxUJ.gurPNP3hsEw4onjq-mNrKTA4Vzzmv9Yiix-Qu3ovVmIR5PQxHNA63pWUQaX\"\n    }\n  ],\n  \"total\": 2525,\n  \"page\": 474,\n  \"itemsPerPage\": 6555\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "99398732-f19a-4d6b-be52-3f3921ec1561",
+              "name": "The requested resource was not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "venue",
+                    ":venueId",
+                    "setlists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "p",
+                      "value": "1"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "venueId",
+                      "description": "(Required) The venue ID."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": 5541,\n  \"status\": \"string\",\n  \"message\": \"string\",\n  \"timestamp\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.setlist.fm/rest/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "42bcbf8b-e643-4846-987f-a79d0057dd29",
+    "name": "setlist.fm REST Artists Venues API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).\n\nContact Support:\n Name: setlist.fm",
+      "type": "text/plain"
+    }
+  }
+}
