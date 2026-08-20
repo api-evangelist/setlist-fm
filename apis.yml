@@ -28,6 +28,15 @@ tags:
 - Live Music
 - Venues
 - Artists
+- tour dates
+- Event
+tags_raw:
+- Music
+- Concerts
+- Setlists
+- Live Music
+- Venues
+- Artists
 - Tour Dates
 - Events
 apis:
@@ -36,7 +45,8 @@ apis:
   description: The /1.0/artist/{mbid} API from setlist.fm — 1 operation(s) for /1.0/artist/{mbid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/artist/{mbid}
   properties:
   - type: OpenAPI
@@ -48,7 +58,8 @@ apis:
   description: The /1.0/artist/{mbid}/setlists API from setlist.fm — 1 operation(s) for /1.0/artist/{mbid}/setlists.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/artist/{mbid}/setlists
   properties:
   - type: OpenAPI
@@ -60,7 +71,8 @@ apis:
   description: The /1.0/city/{geoId} API from setlist.fm — 1 operation(s) for /1.0/city/{geoid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/city/{geoId}
   properties:
   - type: OpenAPI
@@ -72,7 +84,8 @@ apis:
   description: The /1.0/search/artists API from setlist.fm — 1 operation(s) for /1.0/search/artists.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/search/artists
   properties:
   - type: OpenAPI
@@ -84,7 +97,8 @@ apis:
   description: The /1.0/search/cities API from setlist.fm — 1 operation(s) for /1.0/search/cities.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/search/cities
   properties:
   - type: OpenAPI
@@ -96,7 +110,8 @@ apis:
   description: The /1.0/search/countries API from setlist.fm — 1 operation(s) for /1.0/search/countries.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/search/countries
   properties:
   - type: OpenAPI
@@ -108,7 +123,8 @@ apis:
   description: The /1.0/search/setlists API from setlist.fm — 1 operation(s) for /1.0/search/setlists.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/search/setlists
   properties:
   - type: OpenAPI
@@ -120,7 +136,8 @@ apis:
   description: The /1.0/search/venues API from setlist.fm — 1 operation(s) for /1.0/search/venues.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/search/venues
   properties:
   - type: OpenAPI
@@ -132,7 +149,8 @@ apis:
   description: The /1.0/setlist/{setlistId} API from setlist.fm — 1 operation(s) for /1.0/setlist/{setlistid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/setlist/{setlistId}
   properties:
   - type: OpenAPI
@@ -144,7 +162,8 @@ apis:
   description: The /1.0/setlist/version/{versionId} API from setlist.fm — 1 operation(s) for /1.0/setlist/version/{versionid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/setlist/version/{versionId}
   properties:
   - type: OpenAPI
@@ -156,7 +175,8 @@ apis:
   description: The /1.0/user/{userId} API from setlist.fm — 1 operation(s) for /1.0/user/{userid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/user/{userId}
   properties:
   - type: OpenAPI
@@ -168,7 +188,8 @@ apis:
   description: The /1.0/user/{userId}/attended API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/attended.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/user/{userId}/attended
   properties:
   - type: OpenAPI
@@ -180,7 +201,8 @@ apis:
   description: The /1.0/user/{userId}/edited API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/edited.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/user/{userId}/edited
   properties:
   - type: OpenAPI
@@ -192,7 +214,8 @@ apis:
   description: The /1.0/venue/{venueId} API from setlist.fm — 1 operation(s) for /1.0/venue/{venueid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/venue/{venueId}
   properties:
   - type: OpenAPI
@@ -204,7 +227,8 @@ apis:
   description: The /1.0/venue/{venueId}/setlists API from setlist.fm — 1 operation(s) for /1.0/venue/{venueid}/setlists.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
-  tags:
+  tags: []
+  tags_raw:
   - /1.0/venue/{venueId}/setlists
   properties:
   - type: OpenAPI
