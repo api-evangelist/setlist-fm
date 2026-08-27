@@ -55,7 +55,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-artist-mbid-setlists-api
   name: setlist.fm /1.0/artist/{mbid}/setlists API
-  description: The /1.0/artist/{mbid}/setlists API from setlist.fm — 1 operation(s) for /1.0/artist/{mbid}/setlists.
+  description: >-
+    The /1.0/artist/{mbid}/setlists API from setlist.fm — 1 operation(s) for /1.0/artist/{mbid}/setlists.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -107,7 +108,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-search-countries-api
   name: setlist.fm /1.0/search/countries API
-  description: The /1.0/search/countries API from setlist.fm — 1 operation(s) for /1.0/search/countries.
+  description: >-
+    The /1.0/search/countries API from setlist.fm — 1 operation(s) for /1.0/search/countries.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -146,7 +148,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-setlist-setlistid-api
   name: setlist.fm /1.0/setlist/{setlistId} API
-  description: The /1.0/setlist/{setlistId} API from setlist.fm — 1 operation(s) for /1.0/setlist/{setlistid}.
+  description: >-
+    The /1.0/setlist/{setlistId} API from setlist.fm — 1 operation(s) for /1.0/setlist/{setlistid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -159,7 +162,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-setlist-version-versionid-api
   name: setlist.fm /1.0/setlist/version/{versionId} API
-  description: The /1.0/setlist/version/{versionId} API from setlist.fm — 1 operation(s) for /1.0/setlist/version/{versionid}.
+  description: >-
+    The /1.0/setlist/version/{versionId} API from setlist.fm — 1 operation(s) for /1.0/setlist/version/{versionid}.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -185,7 +189,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-user-userid-attended-api
   name: setlist.fm /1.0/user/{userId}/attended API
-  description: The /1.0/user/{userId}/attended API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/attended.
+  description: >-
+    The /1.0/user/{userId}/attended API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/attended.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -198,7 +203,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-user-userid-edited-api
   name: setlist.fm /1.0/user/{userId}/edited API
-  description: The /1.0/user/{userId}/edited API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/edited.
+  description: >-
+    The /1.0/user/{userId}/edited API from setlist.fm — 1 operation(s) for /1.0/user/{userid}/edited.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -224,7 +230,8 @@ apis:
     url: https://api.setlist.fm/docs/1.0/resources.html
 - aid: setlist-fm:setlist-fm-1-0-venue-venueid-setlists-api
   name: setlist.fm /1.0/venue/{venueId}/setlists API
-  description: The /1.0/venue/{venueId}/setlists API from setlist.fm — 1 operation(s) for /1.0/venue/{venueid}/setlists.
+  description: >-
+    The /1.0/venue/{venueId}/setlists API from setlist.fm — 1 operation(s) for /1.0/venue/{venueid}/setlists.
   humanURL: https://api.setlist.fm/docs/1.0/resources.html
   baseURL: https://api.setlist.fm/rest
   tags: []
@@ -235,6 +242,76 @@ apis:
     url: openapi/setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml
   - type: Documentation
     url: https://api.setlist.fm/docs/1.0/resources.html
+- aid: setlist-fm:setlist-fm-artists-api
+  name: setlist.fm Artists API
+  description: Artists keyed by MusicBrainz MBID and their setlists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - Artists
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-artists-api-openapi.yml
+- aid: setlist-fm:setlist-fm-cities-api
+  name: setlist.fm Cities API
+  description: Cities resolved by GeoNames geoId.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - Cities
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-cities-api-openapi.yml
+- aid: setlist-fm:setlist-fm-countries-api
+  name: setlist.fm Countries API
+  description: The reference list of countries.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - Countries
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-countries-api-openapi.yml
+- aid: setlist-fm:setlist-fm-search-api
+  name: setlist.fm Search API
+  description: Full-text search across artists, venues, cities, and setlists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-search-api-openapi.yml
+- aid: setlist-fm:setlist-fm-setlists-api
+  name: setlist.fm Setlists API
+  description: Individual setlists and their historical versions.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - Setlists
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-setlists-api-openapi.yml
+- aid: setlist-fm:setlist-fm-user-api
+  name: setlist.fm User API
+  description: Community members and their attended/edited setlists.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - User
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-user-api-openapi.yml
+- aid: setlist-fm:setlist-fm-venues-api
+  name: setlist.fm Venues API
+  description: Concert venues and the setlists performed at them.
+  humanURL: https://api.setlist.fm/docs/1.0/resources.html
+  baseURL: https://api.setlist.fm/rest
+  tags:
+  - Venues
+  properties:
+  - type: OpenAPI
+    url: openapi/setlist-fm-venues-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/setlist-fm-agentic-access.yml
