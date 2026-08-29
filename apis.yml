@@ -4,6 +4,18 @@ description: setlist.fm is a concert setlist database providing a REST API for a
   by artist or venue, tracking tour dates, and accessing live music performance data. The API supports
   JSON and XML responses, uses MusicBrainz IDs for artist identification, and provides endpoints for artists,
   venues, cities, countries, and user attendance data.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: unknown
