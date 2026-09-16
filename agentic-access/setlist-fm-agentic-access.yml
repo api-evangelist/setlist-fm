@@ -1,15 +1,24 @@
-generated: '2026-07-15'
+generated: '2026-09-16'
 method: generated
-source: openapi/setlist-fm-openapi.json
+source: openapi/setlist-fm-1-0-artist-mbid-api-openapi.yml, openapi/setlist-fm-1-0-artist-mbid-setlists-api-openapi.yml,
+  openapi/setlist-fm-1-0-city-geoid-api-openapi.yml, openapi/setlist-fm-1-0-search-artists-api-openapi.yml,
+  openapi/setlist-fm-1-0-search-cities-api-openapi.yml, openapi/setlist-fm-1-0-search-countries-api-openapi.yml,
+  openapi/setlist-fm-1-0-search-setlists-api-openapi.yml, openapi/setlist-fm-1-0-search-venues-api-openapi.yml,
+  openapi/setlist-fm-1-0-setlist-setlistid-api-openapi.yml, openapi/setlist-fm-1-0-setlist-version-versionid-api-openapi.yml,
+  openapi/setlist-fm-1-0-user-userid-api-openapi.yml, openapi/setlist-fm-1-0-user-userid-attended-api-openapi.yml,
+  openapi/setlist-fm-1-0-user-userid-edited-api-openapi.yml, openapi/setlist-fm-1-0-venue-venueid-api-openapi.yml,
+  openapi/setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml, openapi/setlist-fm-artists-api-openapi.yml,
+  openapi/setlist-fm-cities-api-openapi.yml, openapi/setlist-fm-countries-api-openapi.yml, openapi/setlist-fm-search-api-openapi.yml,
+  openapi/setlist-fm-setlists-api-openapi.yml, openapi/setlist-fm-user-api-openapi.yml, openapi/setlist-fm-venues-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
-  operations: 15
+  operations: 31
   by_action_class:
-    connected: 15
+    connected: 31
   by_consequence:
-    read: 15
+    read: 31
   human_in_the_loop_required: 0
 operations:
 - path: /1.0/artist/{mbid}
@@ -92,9 +101,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /1.0/setlist/version/{versionId}
+- path: /1.0/setlist/{setlistId}
   method: get
-  operationId: resource__1.0_setlist_version__versionId__getSetlistVersion_GET
+  operationId: resource__1.0_setlist__setlistId__getSetlist_GET
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -102,9 +111,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /1.0/setlist/{setlistId}
+- path: /1.0/setlist/version/{versionId}
   method: get
-  operationId: resource__1.0_setlist__setlistId__getSetlist_GET
+  operationId: resource__1.0_setlist_version__versionId__getSetlistVersion_GET
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -155,6 +164,166 @@ operations:
 - path: /1.0/venue/{venueId}/setlists
   method: get
   operationId: resource__1.0_venue__venueId__setlists_getVenueSetlists_GET
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /artist/{mbid}
+  method: get
+  operationId: getArtist
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /artist/{mbid}/setlists
+  method: get
+  operationId: getArtistSetlists
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /city/{geoId}
+  method: get
+  operationId: getCity
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/countries
+  method: get
+  operationId: searchCountries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/artists
+  method: get
+  operationId: searchArtists
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/venues
+  method: get
+  operationId: searchVenues
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/cities
+  method: get
+  operationId: searchCities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/countries
+  method: get
+  operationId: searchCountries
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /search/setlists
+  method: get
+  operationId: searchSetlists
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /setlist/{setlistId}
+  method: get
+  operationId: getSetlist
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /setlist/version/{versionId}
+  method: get
+  operationId: getSetlistVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /user/{userId}
+  method: get
+  operationId: getUser
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /user/{userId}/attended
+  method: get
+  operationId: getUserAttended
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /user/{userId}/edited
+  method: get
+  operationId: getUserEdited
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /venue/{venueId}
+  method: get
+  operationId: getVenue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /venue/{venueId}/setlists
+  method: get
+  operationId: getVenueSetlists
   x-agentic-access:
     action-class: connected
     consequence: read
