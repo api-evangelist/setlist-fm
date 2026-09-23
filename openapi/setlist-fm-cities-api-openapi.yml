@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: setlist.fm REST Artists Cities API
-  description: 'The setlist.fm REST API provides read-only access to the world''s largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).'
+  title: setlist.fm REST Cities API
+  description: The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database.
   version: '1.0'
   contact:
     name: setlist.fm
@@ -41,15 +41,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
     Country:
       type: object
       properties:
@@ -74,6 +65,15 @@ components:
           $ref: '#/components/schemas/Coords'
         country:
           $ref: '#/components/schemas/Country'
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
     Error:
       type: object
       properties:

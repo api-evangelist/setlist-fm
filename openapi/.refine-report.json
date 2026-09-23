@@ -1,21 +1,8 @@
 {
   "provider": "setlist-fm",
   "sources": [
-    "setlist-fm-1-0-artist-mbid-api-openapi.yml",
-    "setlist-fm-1-0-artist-mbid-setlists-api-openapi.yml",
-    "setlist-fm-1-0-city-geoid-api-openapi.yml",
-    "setlist-fm-1-0-search-artists-api-openapi.yml",
-    "setlist-fm-1-0-search-cities-api-openapi.yml",
-    "setlist-fm-1-0-search-countries-api-openapi.yml",
-    "setlist-fm-1-0-search-setlists-api-openapi.yml",
-    "setlist-fm-1-0-search-venues-api-openapi.yml",
-    "setlist-fm-1-0-setlist-setlistid-api-openapi.yml",
-    "setlist-fm-1-0-setlist-version-versionid-api-openapi.yml",
-    "setlist-fm-1-0-user-userid-api-openapi.yml",
-    "setlist-fm-1-0-user-userid-attended-api-openapi.yml",
-    "setlist-fm-1-0-user-userid-edited-api-openapi.yml",
-    "setlist-fm-1-0-venue-venueid-api-openapi.yml",
-    "setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml"
+    "_original/setlist-fm-openapi.json",
+    "_original/setlist-fm-openapi.yml"
   ],
   "outputs": [
     "setlist-fm-1-0-artist-mbid-api-openapi.yml",
@@ -26,17 +13,52 @@
     "setlist-fm-1-0-search-countries-api-openapi.yml",
     "setlist-fm-1-0-search-setlists-api-openapi.yml",
     "setlist-fm-1-0-search-venues-api-openapi.yml",
-    "setlist-fm-1-0-setlist-setlistid-api-openapi.yml",
     "setlist-fm-1-0-setlist-version-versionid-api-openapi.yml",
+    "setlist-fm-1-0-setlist-setlistid-api-openapi.yml",
     "setlist-fm-1-0-user-userid-api-openapi.yml",
     "setlist-fm-1-0-user-userid-attended-api-openapi.yml",
     "setlist-fm-1-0-user-userid-edited-api-openapi.yml",
     "setlist-fm-1-0-venue-venueid-api-openapi.yml",
-    "setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml"
+    "setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml",
+    "setlist-fm-artists-api-openapi.yml",
+    "setlist-fm-cities-api-openapi.yml",
+    "setlist-fm-countries-api-openapi.yml",
+    "setlist-fm-search-api-openapi.yml",
+    "setlist-fm-setlists-api-openapi.yml",
+    "setlist-fm-user-api-openapi.yml",
+    "setlist-fm-venues-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "setlist-fm-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "setlist-fm-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "setlist-fm-1-0-artist-mbid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-artist-mbid-setlists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-city-geoid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-search-artists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-search-cities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-search-countries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-search-setlists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-search-venues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-setlist-setlistid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-setlist-version-versionid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-user-userid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-user-userid-attended-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-user-userid-edited-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-venue-venueid-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-1-0-venue-venueid-setlists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-artists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-cities-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-countries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-setlists-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-user-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "setlist-fm-venues-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

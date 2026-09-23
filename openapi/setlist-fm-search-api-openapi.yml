@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: setlist.fm REST Artists Search API
-  description: 'The setlist.fm REST API provides read-only access to the world''s largest crowd-sourced concert setlist database. Look up artists (by MusicBrainz MBID), setlists and their revision history, venues, cities, and countries, and run full-text search across each. All endpoints are HTTP GET and return either JSON (Accept: application/json) or XML (Accept: application/xml, the default). Every request must include a valid API key in the `x-api-key` header; keys are issued from the setlist.fm API settings page. The API is free for non-commercial use only - commercial use requires contacting setlist.fm. Localized text is available via the `Accept-Language` header (en, es, fr, de, pt, tr, it, pl).'
+  title: setlist.fm REST Search API
+  description: The setlist.fm REST API provides read-only access to the world's largest crowd-sourced concert setlist database.
   version: '1.0'
   contact:
     name: setlist.fm
@@ -267,47 +267,33 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Venue:
+    Song:
       type: object
       properties:
-        id:
-          type: string
         name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
+    Artist:
+      type: object
+      properties:
+        mbid:
+          type: string
+          description: Unique MusicBrainz Identifier of the artist.
+        name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
           type: string
         url:
           type: string
           format: uri
-        city:
-          $ref: '#/components/schemas/City'
-    Sets:
-      type: object
-      properties:
-        set:
-          type: array
-          items:
-            $ref: '#/components/schemas/Set'
-    Artists:
-      type: object
-      properties:
-        artist:
-          type: array
-          items:
-            $ref: '#/components/schemas/Artist'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
+          description: The setlist.fm page of the artist.
     Country:
       type: object
       properties:
@@ -316,6 +302,26 @@ components:
           description: The ISO code of the country.
         name:
           type: string
+    Venues:
+      type: object
+      properties:
+        venue:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venue'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Sets:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Set'
     Countries:
       type: object
       properties:
@@ -329,6 +335,109 @@ components:
           type: integer
         itemsPerPage:
           type: integer
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    Cities:
+      type: object
+      properties:
+        cities:
+          type: array
+          items:
+            $ref: '#/components/schemas/City'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Setlists:
+      type: object
+      properties:
+        setlist:
+          type: array
+          items:
+            $ref: '#/components/schemas/Setlist'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+    Artists:
+      type: object
+      properties:
+        artist:
+          type: array
+          items:
+            $ref: '#/components/schemas/Artist'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Set:
+      type: object
+      properties:
+        name:
+          type: string
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
     Setlist:
       type: object
       properties:
@@ -355,115 +464,6 @@ components:
         url:
           type: string
           format: uri
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
-    Setlists:
-      type: object
-      properties:
-        setlist:
-          type: array
-          items:
-            $ref: '#/components/schemas/Setlist'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Tour:
-      type: object
-      properties:
-        name:
-          type: string
-    Artist:
-      type: object
-      properties:
-        mbid:
-          type: string
-          description: Unique MusicBrainz Identifier of the artist.
-        name:
-          type: string
-        sortName:
-          type: string
-        disambiguation:
-          type: string
-        url:
-          type: string
-          format: uri
-          description: The setlist.fm page of the artist.
-    Venues:
-      type: object
-      properties:
-        venue:
-          type: array
-          items:
-            $ref: '#/components/schemas/Venue'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Cities:
-      type: object
-      properties:
-        cities:
-          type: array
-          items:
-            $ref: '#/components/schemas/City'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Song:
-      type: object
-      properties:
-        name:
-          type: string
-        info:
-          type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
-    Set:
-      type: object
-      properties:
-        name:
-          type: string
-        encore:
-          type: integer
-        song:
-          type: array
-          items:
-            $ref: '#/components/schemas/Song'
   responses:
     NotFound:
       description: The requested resource was not found.
