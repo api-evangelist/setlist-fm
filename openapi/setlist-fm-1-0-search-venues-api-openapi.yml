@@ -94,6 +94,73 @@ paths:
                 itemsPerPage: 20
 components:
   schemas:
+    json_Country:
+      type: object
+      title: country
+      properties:
+        code:
+          example: US
+          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
+
+            <em>&quot;ie&quot;</em> for Ireland'
+          type: string
+        name:
+          example: United States
+          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
+
+            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
+          type: string
+      example:
+        code: US
+        name: United States
+      description: This class represents a country on earth.
+    json_Venues:
+      type: object
+      title: venues
+      properties:
+        venue:
+          description: result list of venues
+          type: array
+          items:
+            $ref: '#/components/schemas/json_Venue'
+        total:
+          example: 42
+          description: the total amount of items matching the query
+          type: number
+        page:
+          example: 1
+          description: the current page. starts at 1
+          type: number
+        itemsPerPage:
+          example: 20
+          description: the amount of items you get per page
+          type: number
+      example:
+        venue:
+        - city:
+            id: '5357527'
+            name: Hollywood
+            stateCode: CA
+            state: California
+            coords: {}
+            country: {}
+          url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+          id: 6bd6ca6e
+          name: Compaq Center
+        - city:
+            id: '...'
+            name: '...'
+            stateCode: '...'
+            state: '...'
+            coords: {}
+            country: {}
+          url: '...'
+          id: '...'
+          name: '...'
+        total: 42
+        page: 1
+        itemsPerPage: 20
+      description: A Result consisting of a list of venues.
     json_Venue:
       type: object
       title: venue
@@ -135,22 +202,6 @@ components:
         some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
 
         may (but do not have to) be in the name.'
-    json_Coords:
-      type: object
-      title: coords
-      properties:
-        long:
-          example: -118.3267434
-          description: The longitude part of the coordinates.
-          type: number
-        lat:
-          example: 34.0983425
-          description: The latitude part of the coordinates.
-          type: number
-      example:
-        long: -118.3267434
-        lat: 34.0983425
-      description: Coordinates of a point on the globe. Mostly used for Cities.
     json_City:
       type: object
       title: city
@@ -213,70 +264,19 @@ components:
       description: 'This class represents a city where Venues are located. Most of the original city data was taken from
 
         <a href="http://geonames.org/">Geonames.org</a>.'
-    json_Venues:
+    json_Coords:
       type: object
-      title: venues
+      title: coords
       properties:
-        venue:
-          description: result list of venues
-          type: array
-          items:
-            $ref: '#/components/schemas/json_Venue'
-        total:
-          example: 42
-          description: the total amount of items matching the query
+        long:
+          example: -118.3267434
+          description: The longitude part of the coordinates.
           type: number
-        page:
-          example: 1
-          description: the current page. starts at 1
-          type: number
-        itemsPerPage:
-          example: 20
-          description: the amount of items you get per page
+        lat:
+          example: 34.0983425
+          description: The latitude part of the coordinates.
           type: number
       example:
-        venue:
-        - city:
-            id: '5357527'
-            name: Hollywood
-            stateCode: CA
-            state: California
-            coords: {}
-            country: {}
-          url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-          id: 6bd6ca6e
-          name: Compaq Center
-        - city:
-            id: '...'
-            name: '...'
-            stateCode: '...'
-            state: '...'
-            coords: {}
-            country: {}
-          url: '...'
-          id: '...'
-          name: '...'
-        total: 42
-        page: 1
-        itemsPerPage: 20
-      description: A Result consisting of a list of venues.
-    json_Country:
-      type: object
-      title: country
-      properties:
-        code:
-          example: US
-          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
-
-            <em>&quot;ie&quot;</em> for Ireland'
-          type: string
-        name:
-          example: United States
-          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
-
-            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
-          type: string
-      example:
-        code: US
-        name: United States
-      description: This class represents a country on earth.
+        long: -118.3267434
+        lat: 34.0983425
+      description: Coordinates of a point on the globe. Mostly used for Cities.

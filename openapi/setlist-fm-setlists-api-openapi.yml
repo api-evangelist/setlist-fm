@@ -64,17 +64,17 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Song:
+    Error:
       type: object
       properties:
-        name:
+        code:
+          type: integer
+        status:
           type: string
-        info:
+        message:
           type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
+        timestamp:
+          type: string
     Artist:
       type: object
       properties:
@@ -91,85 +91,6 @@ components:
           type: string
           format: uri
           description: The setlist.fm page of the artist.
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The ISO code of the country.
-        name:
-          type: string
-    Sets:
-      type: object
-      properties:
-        set:
-          type: array
-          items:
-            $ref: '#/components/schemas/Set'
-    Tour:
-      type: object
-      properties:
-        name:
-          type: string
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
-    Venue:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        city:
-          $ref: '#/components/schemas/City'
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
-    Set:
-      type: object
-      properties:
-        name:
-          type: string
-        encore:
-          type: integer
-        song:
-          type: array
-          items:
-            $ref: '#/components/schemas/Song'
     Setlist:
       type: object
       properties:
@@ -196,6 +117,85 @@ components:
         url:
           type: string
           format: uri
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Sets:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Set'
+    Set:
+      type: object
+      properties:
+        name:
+          type: string
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
   responses:
     NotFound:
       description: The requested resource was not found.

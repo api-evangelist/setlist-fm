@@ -41,13 +41,16 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Country:
+    Error:
       type: object
       properties:
         code:
+          type: integer
+        status:
           type: string
-          description: The ISO code of the country.
-        name:
+        message:
+          type: string
+        timestamp:
           type: string
     City:
       type: object
@@ -74,16 +77,13 @@ components:
         long:
           type: number
           format: double
-    Error:
+    Country:
       type: object
       properties:
         code:
-          type: integer
-        status:
           type: string
-        message:
-          type: string
-        timestamp:
+          description: The ISO code of the country.
+        name:
           type: string
   responses:
     NotFound:

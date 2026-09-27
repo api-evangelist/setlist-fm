@@ -50,26 +50,6 @@ paths:
                   name: United States
 components:
   schemas:
-    json_Country:
-      type: object
-      title: country
-      properties:
-        code:
-          example: US
-          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
-
-            <em>&quot;ie&quot;</em> for Ireland'
-          type: string
-        name:
-          example: United States
-          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
-
-            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
-          type: string
-      example:
-        code: US
-        name: United States
-      description: This class represents a country on earth.
     json_City:
       type: object
       title: city
@@ -132,6 +112,26 @@ components:
       description: 'This class represents a city where Venues are located. Most of the original city data was taken from
 
         <a href="http://geonames.org/">Geonames.org</a>.'
+    json_Country:
+      type: object
+      title: country
+      properties:
+        code:
+          example: US
+          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
+
+            <em>&quot;ie&quot;</em> for Ireland'
+          type: string
+        name:
+          example: United States
+          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
+
+            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
+          type: string
+      example:
+        code: US
+        name: United States
+      description: This class represents a country on earth.
     json_Coords:
       type: object
       title: coords

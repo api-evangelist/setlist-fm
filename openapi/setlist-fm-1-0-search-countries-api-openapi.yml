@@ -41,26 +41,6 @@ paths:
                 itemsPerPage: 20
 components:
   schemas:
-    json_Country:
-      type: object
-      title: country
-      properties:
-        code:
-          example: US
-          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
-
-            <em>&quot;ie&quot;</em> for Ireland'
-          type: string
-        name:
-          example: United States
-          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
-
-            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
-          type: string
-      example:
-        code: US
-        name: United States
-      description: This class represents a country on earth.
     json_Countries:
       type: object
       title: countries
@@ -92,3 +72,23 @@ components:
         page: 1
         itemsPerPage: 20
       description: A Result consisting of a list of countries.
+    json_Country:
+      type: object
+      title: country
+      properties:
+        code:
+          example: US
+          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
+
+            <em>&quot;ie&quot;</em> for Ireland'
+          type: string
+        name:
+          example: United States
+          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
+
+            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
+          type: string
+      example:
+        code: US
+        name: United States
+      description: This class represents a country on earth.

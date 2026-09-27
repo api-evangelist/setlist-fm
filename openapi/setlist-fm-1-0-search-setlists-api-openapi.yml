@@ -234,63 +234,82 @@ components:
         info: '...'
         tape: false
       description: This class represents a song that is part of a Set.
-    json_Venue:
+    json_Country:
       type: object
-      title: venue
+      title: country
       properties:
-        city:
-          description: the city in which the venue is located
-          $ref: '#/components/schemas/json_City'
-        url:
-          example: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-          description: the attribution url
-          type: string
-        id:
-          example: 6bd6ca6e
-          description: unique identifier
+        code:
+          example: US
+          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
+
+            <em>&quot;ie&quot;</em> for Ireland'
           type: string
         name:
-          example: Compaq Center
-          description: 'the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or
+          example: United States
+          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
 
-            <em>&quot;Royal Albert Hall&quot;</em>'
+            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
           type: string
       example:
-        city:
-          id: '5357527'
-          name: Hollywood
-          stateCode: CA
-          state: California
-          coords:
-            long: -118.3267434
-            lat: 34.0983425
-          country:
-            code: US
-            name: United States
-        url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-        id: 6bd6ca6e
-        name: Compaq Center
-      description: 'Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also
-
-        some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
-
-        may (but do not have to) be in the name.'
-    json_Coords:
+        code: US
+        name: United States
+      description: This class represents a country on earth.
+    json_Set:
       type: object
-      title: coords
+      title: set
       properties:
-        long:
-          example: -118.3267434
-          description: The longitude part of the coordinates.
+        name:
+          description: 'the description/name of the set. E.g. <em>&quot;Acoustic set&quot;</em> or <em>&quot;Paul McCartney
+
+            solo&quot;</em>'
+          type: string
+        encore:
+          description: 'if the set is an encore, this is the number of the encore, starting with 1 for the first encore, 2 for the second
+
+            and so on.'
           type: number
-        lat:
-          example: 34.0983425
-          description: The latitude part of the coordinates.
-          type: number
+        song:
+          description: this set's songs
+          type: array
+          items:
+            $ref: '#/components/schemas/json_Song'
       example:
-        long: -118.3267434
-        lat: 34.0983425
-      description: Coordinates of a point on the globe. Mostly used for Cities.
+        name: '...'
+        encore: 12345
+        song:
+        - name: Yesterday
+          with:
+            mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+            name: The Beatles
+            sortName: Beatles, The
+            disambiguation: John, Paul, George and Ringo
+            url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+          cover:
+            mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+            name: The Beatles
+            sortName: Beatles, The
+            disambiguation: John, Paul, George and Ringo
+            url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+          info: '...'
+          tape: false
+        - name: '...'
+          with:
+            mbid: '...'
+            name: '...'
+            sortName: '...'
+            disambiguation: '...'
+            url: '...'
+          cover:
+            mbid: '...'
+            name: '...'
+            sortName: '...'
+            disambiguation: '...'
+            url: '...'
+          info: '...'
+          tape: true
+      description: 'A setlist consists of different (at least one) sets. Sets can either be sets as defined in the
+
+        <a href="https://www.setlist.fm/guidelines">Guidelines</a> or encores.'
     json_City:
       type: object
       title: city
@@ -353,6 +372,150 @@ components:
       description: 'This class represents a city where Venues are located. Most of the original city data was taken from
 
         <a href="http://geonames.org/">Geonames.org</a>.'
+    json_Setlists:
+      type: object
+      title: setlists
+      properties:
+        setlist:
+          description: result list of setlists
+          type: array
+          items:
+            $ref: '#/components/schemas/json_Setlist'
+        total:
+          example: 42
+          description: the total amount of items matching the query
+          type: number
+        page:
+          example: 1
+          description: the current page. starts at 1
+          type: number
+        itemsPerPage:
+          example: 20
+          description: the amount of items you get per page
+          type: number
+      example:
+        setlist:
+        - artist:
+            mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+            name: The Beatles
+            sortName: Beatles, The
+            disambiguation: John, Paul, George and Ringo
+            url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+          venue:
+            city: {}
+            url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+            id: 6bd6ca6e
+            name: Compaq Center
+          tour:
+            name: North American Tour 1964
+          set:
+          - name: '...'
+            encore: 12345
+            song:
+            - {}
+            - {}
+          - name: '...'
+            encore: 12345
+            song:
+            - {}
+            - {}
+          info: Recorded and published as 'The Beatles at the Hollywood Bowl'
+          url: https://www.setlist.fm/setlist/the-beatles/1964/hollywood-bowl-hollywood-ca-63de4613.html
+          id: 63de4613
+          versionId: 7be1aaa0
+          eventDate: 23-08-1964
+          lastUpdated: 2013-10-20T05:18:08.000+0000
+        - artist:
+            mbid: '...'
+            name: '...'
+            sortName: '...'
+            disambiguation: '...'
+            url: '...'
+          venue:
+            city: {}
+            url: '...'
+            id: '...'
+            name: '...'
+          tour:
+            name: '...'
+          set:
+          - name: '...'
+            encore: 12345
+            song:
+            - {}
+            - {}
+          - name: '...'
+            encore: 12345
+            song:
+            - {}
+            - {}
+          info: '...'
+          url: '...'
+          id: '...'
+          versionId: '...'
+          eventDate: '...'
+          lastUpdated: '...'
+        total: 42
+        page: 1
+        itemsPerPage: 20
+      description: A Result consisting of a list of setlists.
+    json_Venue:
+      type: object
+      title: venue
+      properties:
+        city:
+          description: the city in which the venue is located
+          $ref: '#/components/schemas/json_City'
+        url:
+          example: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+          description: the attribution url
+          type: string
+        id:
+          example: 6bd6ca6e
+          description: unique identifier
+          type: string
+        name:
+          example: Compaq Center
+          description: 'the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or
+
+            <em>&quot;Royal Albert Hall&quot;</em>'
+          type: string
+      example:
+        city:
+          id: '5357527'
+          name: Hollywood
+          stateCode: CA
+          state: California
+          coords:
+            long: -118.3267434
+            lat: 34.0983425
+          country:
+            code: US
+            name: United States
+        url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+        id: 6bd6ca6e
+        name: Compaq Center
+      description: 'Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also
+
+        some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
+
+        may (but do not have to) be in the name.'
+    json_Coords:
+      type: object
+      title: coords
+      properties:
+        long:
+          example: -118.3267434
+          description: The longitude part of the coordinates.
+          type: number
+        lat:
+          example: 34.0983425
+          description: The latitude part of the coordinates.
+          type: number
+      example:
+        long: -118.3267434
+        lat: 34.0983425
+      description: Coordinates of a point on the globe. Mostly used for Cities.
     json_Artist:
       type: object
       title: artist
@@ -509,166 +672,3 @@ components:
         own. So setlists can have the same id although they differ as far as the content is concerned - thus the best way to
 
         check if two setlists are the same is to compare their versionIds.'
-    json_Set:
-      type: object
-      title: set
-      properties:
-        name:
-          description: 'the description/name of the set. E.g. <em>&quot;Acoustic set&quot;</em> or <em>&quot;Paul McCartney
-
-            solo&quot;</em>'
-          type: string
-        encore:
-          description: 'if the set is an encore, this is the number of the encore, starting with 1 for the first encore, 2 for the second
-
-            and so on.'
-          type: number
-        song:
-          description: this set's songs
-          type: array
-          items:
-            $ref: '#/components/schemas/json_Song'
-      example:
-        name: '...'
-        encore: 12345
-        song:
-        - name: Yesterday
-          with:
-            mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
-            name: The Beatles
-            sortName: Beatles, The
-            disambiguation: John, Paul, George and Ringo
-            url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
-          cover:
-            mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
-            name: The Beatles
-            sortName: Beatles, The
-            disambiguation: John, Paul, George and Ringo
-            url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
-          info: '...'
-          tape: false
-        - name: '...'
-          with:
-            mbid: '...'
-            name: '...'
-            sortName: '...'
-            disambiguation: '...'
-            url: '...'
-          cover:
-            mbid: '...'
-            name: '...'
-            sortName: '...'
-            disambiguation: '...'
-            url: '...'
-          info: '...'
-          tape: true
-      description: 'A setlist consists of different (at least one) sets. Sets can either be sets as defined in the
-
-        <a href="https://www.setlist.fm/guidelines">Guidelines</a> or encores.'
-    json_Country:
-      type: object
-      title: country
-      properties:
-        code:
-          example: US
-          description: 'The country''s <a href= "http://www.iso.org/iso/english_country_names_and_code_elements" >ISO code</a>. E.g.
-
-            <em>&quot;ie&quot;</em> for Ireland'
-          type: string
-        name:
-          example: United States
-          description: 'The country''s name. Can be a localized name - e.g. <em>&quot;Austria&quot;</em> or
-
-            <em>&quot;&Ouml;sterreich&quot;</em> for Austria if the German name was requested.'
-          type: string
-      example:
-        code: US
-        name: United States
-      description: This class represents a country on earth.
-    json_Setlists:
-      type: object
-      title: setlists
-      properties:
-        setlist:
-          description: result list of setlists
-          type: array
-          items:
-            $ref: '#/components/schemas/json_Setlist'
-        total:
-          example: 42
-          description: the total amount of items matching the query
-          type: number
-        page:
-          example: 1
-          description: the current page. starts at 1
-          type: number
-        itemsPerPage:
-          example: 20
-          description: the amount of items you get per page
-          type: number
-      example:
-        setlist:
-        - artist:
-            mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
-            name: The Beatles
-            sortName: Beatles, The
-            disambiguation: John, Paul, George and Ringo
-            url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
-          venue:
-            city: {}
-            url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-            id: 6bd6ca6e
-            name: Compaq Center
-          tour:
-            name: North American Tour 1964
-          set:
-          - name: '...'
-            encore: 12345
-            song:
-            - {}
-            - {}
-          - name: '...'
-            encore: 12345
-            song:
-            - {}
-            - {}
-          info: Recorded and published as 'The Beatles at the Hollywood Bowl'
-          url: https://www.setlist.fm/setlist/the-beatles/1964/hollywood-bowl-hollywood-ca-63de4613.html
-          id: 63de4613
-          versionId: 7be1aaa0
-          eventDate: 23-08-1964
-          lastUpdated: 2013-10-20T05:18:08.000+0000
-        - artist:
-            mbid: '...'
-            name: '...'
-            sortName: '...'
-            disambiguation: '...'
-            url: '...'
-          venue:
-            city: {}
-            url: '...'
-            id: '...'
-            name: '...'
-          tour:
-            name: '...'
-          set:
-          - name: '...'
-            encore: 12345
-            song:
-            - {}
-            - {}
-          - name: '...'
-            encore: 12345
-            song:
-            - {}
-            - {}
-          info: '...'
-          url: '...'
-          id: '...'
-          versionId: '...'
-          eventDate: '...'
-          lastUpdated: '...'
-        total: 42
-        page: 1
-        itemsPerPage: 20
-      description: A Result consisting of a list of setlists.
