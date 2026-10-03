@@ -54,47 +54,6 @@ paths:
                 name: Compaq Center
 components:
   schemas:
-    json_Venue:
-      type: object
-      title: venue
-      properties:
-        city:
-          description: the city in which the venue is located
-          $ref: '#/components/schemas/json_City'
-        url:
-          example: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-          description: the attribution url
-          type: string
-        id:
-          example: 6bd6ca6e
-          description: unique identifier
-          type: string
-        name:
-          example: Compaq Center
-          description: 'the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or
-
-            <em>&quot;Royal Albert Hall&quot;</em>'
-          type: string
-      example:
-        city:
-          id: '5357527'
-          name: Hollywood
-          stateCode: CA
-          state: California
-          coords:
-            long: -118.3267434
-            lat: 34.0983425
-          country:
-            code: US
-            name: United States
-        url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-        id: 6bd6ca6e
-        name: Compaq Center
-      description: 'Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also
-
-        some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
-
-        may (but do not have to) be in the name.'
     json_City:
       type: object
       title: city
@@ -193,3 +152,44 @@ components:
         long: -118.3267434
         lat: 34.0983425
       description: Coordinates of a point on the globe. Mostly used for Cities.
+    json_Venue:
+      type: object
+      title: venue
+      properties:
+        city:
+          description: the city in which the venue is located
+          $ref: '#/components/schemas/json_City'
+        url:
+          example: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+          description: the attribution url
+          type: string
+        id:
+          example: 6bd6ca6e
+          description: unique identifier
+          type: string
+        name:
+          example: Compaq Center
+          description: 'the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or
+
+            <em>&quot;Royal Albert Hall&quot;</em>'
+          type: string
+      example:
+        city:
+          id: '5357527'
+          name: Hollywood
+          stateCode: CA
+          state: California
+          coords:
+            long: -118.3267434
+            lat: 34.0983425
+          country:
+            code: US
+            name: United States
+        url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+        id: 6bd6ca6e
+        name: Compaq Center
+      description: 'Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also
+
+        some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
+
+        may (but do not have to) be in the name.'

@@ -64,6 +64,29 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
     Error:
       type: object
       properties:
@@ -75,22 +98,22 @@ components:
           type: string
         timestamp:
           type: string
-    Artist:
+    Tour:
       type: object
       properties:
-        mbid:
-          type: string
-          description: Unique MusicBrainz Identifier of the artist.
         name:
           type: string
-        sortName:
+    Set:
+      type: object
+      properties:
+        name:
           type: string
-        disambiguation:
-          type: string
-        url:
-          type: string
-          format: uri
-          description: The setlist.fm page of the artist.
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
     Setlist:
       type: object
       properties:
@@ -117,45 +140,6 @@ components:
         url:
           type: string
           format: uri
-    Tour:
-      type: object
-      properties:
-        name:
-          type: string
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
-    Sets:
-      type: object
-      properties:
-        set:
-          type: array
-          items:
-            $ref: '#/components/schemas/Set'
-    Set:
-      type: object
-      properties:
-        name:
-          type: string
-        encore:
-          type: integer
-        song:
-          type: array
-          items:
-            $ref: '#/components/schemas/Song'
     Country:
       type: object
       properties:
@@ -173,29 +157,45 @@ components:
         long:
           type: number
           format: double
-    Venue:
+    Artist:
       type: object
       properties:
-        id:
+        mbid:
           type: string
+          description: Unique MusicBrainz Identifier of the artist.
         name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
           type: string
         url:
           type: string
           format: uri
-        city:
-          $ref: '#/components/schemas/City'
-    Song:
+          description: The setlist.fm page of the artist.
+    Sets:
       type: object
       properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Set'
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
         name:
           type: string
-        info:
+        stateCode:
           type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
   responses:
     NotFound:
       description: The requested resource was not found.

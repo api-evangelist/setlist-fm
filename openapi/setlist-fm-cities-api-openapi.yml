@@ -52,6 +52,23 @@ components:
           type: string
         timestamp:
           type: string
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
     City:
       type: object
       properties:
@@ -68,23 +85,6 @@ components:
           $ref: '#/components/schemas/Coords'
         country:
           $ref: '#/components/schemas/Country'
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The ISO code of the country.
-        name:
-          type: string
   responses:
     NotFound:
       description: The requested resource was not found.

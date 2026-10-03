@@ -280,6 +280,29 @@ components:
           type: integer
         itemsPerPage:
           type: integer
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
     Error:
       type: object
       properties:
@@ -291,22 +314,48 @@ components:
           type: string
         timestamp:
           type: string
-    Artist:
+    Tour:
       type: object
       properties:
-        mbid:
-          type: string
-          description: Unique MusicBrainz Identifier of the artist.
         name:
           type: string
-        sortName:
+    Setlists:
+      type: object
+      properties:
+        setlist:
+          type: array
+          items:
+            $ref: '#/components/schemas/Setlist'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Set:
+      type: object
+      properties:
+        name:
           type: string
-        disambiguation:
-          type: string
-        url:
-          type: string
-          format: uri
-          description: The setlist.fm page of the artist.
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
+    Venues:
+      type: object
+      properties:
+        venue:
+          type: array
+          items:
+            $ref: '#/components/schemas/Venue'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
     Setlist:
       type: object
       properties:
@@ -333,11 +382,59 @@ components:
         url:
           type: string
           format: uri
-    Tour:
+    Country:
       type: object
       properties:
+        code:
+          type: string
+          description: The ISO code of the country.
         name:
           type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Artist:
+      type: object
+      properties:
+        mbid:
+          type: string
+          description: Unique MusicBrainz Identifier of the artist.
+        name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: The setlist.fm page of the artist.
+    Countries:
+      type: object
+      properties:
+        country:
+          type: array
+          items:
+            $ref: '#/components/schemas/Country'
+        total:
+          type: integer
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
+    Sets:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/Set'
     City:
       type: object
       properties:
@@ -361,103 +458,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Artist'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Sets:
-      type: object
-      properties:
-        set:
-          type: array
-          items:
-            $ref: '#/components/schemas/Set'
-    Set:
-      type: object
-      properties:
-        name:
-          type: string
-        encore:
-          type: integer
-        song:
-          type: array
-          items:
-            $ref: '#/components/schemas/Song'
-    Song:
-      type: object
-      properties:
-        name:
-          type: string
-        info:
-          type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
-    Venues:
-      type: object
-      properties:
-        venue:
-          type: array
-          items:
-            $ref: '#/components/schemas/Venue'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The ISO code of the country.
-        name:
-          type: string
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
-    Venue:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        city:
-          $ref: '#/components/schemas/City'
-    Setlists:
-      type: object
-      properties:
-        setlist:
-          type: array
-          items:
-            $ref: '#/components/schemas/Setlist'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Countries:
-      type: object
-      properties:
-        country:
-          type: array
-          items:
-            $ref: '#/components/schemas/Country'
         total:
           type: integer
         page:
