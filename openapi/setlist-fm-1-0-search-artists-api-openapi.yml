@@ -75,43 +75,6 @@ paths:
                 itemsPerPage: 20
 components:
   schemas:
-    json_Artists:
-      type: object
-      title: artists
-      properties:
-        artist:
-          description: result list of artists
-          type: array
-          items:
-            $ref: '#/components/schemas/json_Artist'
-        total:
-          example: 42
-          description: the total amount of items matching the query
-          type: number
-        page:
-          example: 1
-          description: the current page. starts at 1
-          type: number
-        itemsPerPage:
-          example: 20
-          description: the amount of items you get per page
-          type: number
-      example:
-        artist:
-        - mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
-          name: The Beatles
-          sortName: Beatles, The
-          disambiguation: John, Paul, George and Ringo
-          url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
-        - mbid: '...'
-          name: '...'
-          sortName: '...'
-          disambiguation: '...'
-          url: '...'
-        total: 42
-        page: 1
-        itemsPerPage: 20
-      description: A Result consisting of a list of artists.
     json_Artist:
       type: object
       title: artist
@@ -151,3 +114,40 @@ components:
         <a href="http://wiki.musicbrainz.org/MBID">Musicbrainz Identifier</a> (MBID) with which the artist can be uniquely
 
         identified.'
+    json_Artists:
+      type: object
+      title: artists
+      properties:
+        artist:
+          description: result list of artists
+          type: array
+          items:
+            $ref: '#/components/schemas/json_Artist'
+        total:
+          example: 42
+          description: the total amount of items matching the query
+          type: number
+        page:
+          example: 1
+          description: the current page. starts at 1
+          type: number
+        itemsPerPage:
+          example: 20
+          description: the amount of items you get per page
+          type: number
+      example:
+        artist:
+        - mbid: b10bbbfc-cf9e-42e0-be17-e2c3e1d2600d
+          name: The Beatles
+          sortName: Beatles, The
+          disambiguation: John, Paul, George and Ringo
+          url: https://www.setlist.fm/setlists/the-beatles-23d6a88b.html
+        - mbid: '...'
+          name: '...'
+          sortName: '...'
+          disambiguation: '...'
+          url: '...'
+        total: 42
+        page: 1
+        itemsPerPage: 20
+      description: A Result consisting of a list of artists.

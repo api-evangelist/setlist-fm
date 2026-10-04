@@ -41,6 +41,31 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
     Error:
       type: object
       properties:
@@ -60,31 +85,6 @@ components:
           description: The ISO code of the country.
         name:
           type: string
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
   responses:
     NotFound:
       description: The requested resource was not found.

@@ -54,45 +54,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    PageParam:
-      name: p
-      in: query
-      required: false
-      description: The number of the result page to return.
-      schema:
-        type: integer
-        default: 1
-    VenueId:
-      name: venueId
-      in: path
-      required: true
-      description: The venue ID.
-      schema:
-        type: string
   schemas:
-    Song:
-      type: object
-      properties:
-        name:
-          type: string
-        info:
-          type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
     Venue:
       type: object
       properties:
@@ -105,11 +67,6 @@ components:
           format: uri
         city:
           $ref: '#/components/schemas/City'
-    Tour:
-      type: object
-      properties:
-        name:
-          type: string
     Setlists:
       type: object
       properties:
@@ -123,6 +80,14 @@ components:
           type: integer
         itemsPerPage:
           type: integer
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
     Set:
       type: object
       properties:
@@ -134,6 +99,74 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Song'
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+    Artist:
+      type: object
+      properties:
+        mbid:
+          type: string
+          description: Unique MusicBrainz Identifier of the artist.
+        name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: The setlist.fm page of the artist.
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
     Setlist:
       type: object
       properties:
@@ -160,39 +193,6 @@ components:
         url:
           type: string
           format: uri
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The ISO code of the country.
-        name:
-          type: string
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
-    Artist:
-      type: object
-      properties:
-        mbid:
-          type: string
-          description: Unique MusicBrainz Identifier of the artist.
-        name:
-          type: string
-        sortName:
-          type: string
-        disambiguation:
-          type: string
-        url:
-          type: string
-          format: uri
-          description: The setlist.fm page of the artist.
     Sets:
       type: object
       properties:
@@ -200,22 +200,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Set'
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
+  parameters:
+    PageParam:
+      name: p
+      in: query
+      required: false
+      description: The number of the result page to return.
+      schema:
+        type: integer
+        default: 1
+    VenueId:
+      name: venueId
+      in: path
+      required: true
+      description: The venue ID.
+      schema:
+        type: string
   responses:
     NotFound:
       description: The requested resource was not found.

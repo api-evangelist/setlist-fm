@@ -54,45 +54,7 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    PageParam:
-      name: p
-      in: query
-      required: false
-      description: The number of the result page to return.
-      schema:
-        type: integer
-        default: 1
-    Mbid:
-      name: mbid
-      in: path
-      required: true
-      description: A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558.
-      schema:
-        type: string
   schemas:
-    Song:
-      type: object
-      properties:
-        name:
-          type: string
-        info:
-          type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
-    Error:
-      type: object
-      properties:
-        code:
-          type: integer
-        status:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
     Venue:
       type: object
       properties:
@@ -105,11 +67,6 @@ components:
           format: uri
         city:
           $ref: '#/components/schemas/City'
-    Tour:
-      type: object
-      properties:
-        name:
-          type: string
     Setlists:
       type: object
       properties:
@@ -123,6 +80,14 @@ components:
           type: integer
         itemsPerPage:
           type: integer
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
     Set:
       type: object
       properties:
@@ -134,6 +99,47 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Song'
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
     Setlist:
       type: object
       properties:
@@ -160,23 +166,17 @@ components:
         url:
           type: string
           format: uri
-    Country:
+    Song:
       type: object
       properties:
-        code:
-          type: string
-          description: The ISO code of the country.
         name:
           type: string
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
     Artist:
       type: object
       properties:
@@ -200,22 +200,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Set'
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
+  parameters:
+    PageParam:
+      name: p
+      in: query
+      required: false
+      description: The number of the result page to return.
+      schema:
+        type: integer
+        default: 1
+    Mbid:
+      name: mbid
+      in: path
+      required: true
+      description: A MusicBrainz MBID, e.g. 0bfba3d3-6a04-4779-bb0a-df07df5b0558.
+      schema:
+        type: string
   responses:
     NotFound:
       description: The requested resource was not found.

@@ -32,14 +32,6 @@ paths:
                 $ref: '#/components/schemas/Countries'
 components:
   schemas:
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The ISO code of the country.
-        name:
-          type: string
     Countries:
       type: object
       properties:
@@ -53,6 +45,14 @@ components:
           type: integer
         itemsPerPage:
           type: integer
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
   securitySchemes:
     apiKeyAuth:
       type: apiKey
