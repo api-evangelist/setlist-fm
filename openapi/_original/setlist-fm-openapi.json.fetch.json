@@ -1,0 +1,12 @@
+{
+ "url": "https://api.setlist.fm/docs/1.0/ui/swagger.json",
+ "requested_url": "https://api.setlist.fm/docs/1.0/ui/swagger.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 85135,
+ "sha256": "16af169c0ca38dd98460ff3f54aafe48a3f33980b05d2604fc1f4975adbb4caf",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
