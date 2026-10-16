@@ -2,6 +2,17 @@
   "repo": "setlist-fm",
   "feeds": [
     {
+      "source": "https://www.setlist.fm/news",
+      "feed_url": "https://www.setlist.fm/news",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://blog.setlist.fm",
+      "error": "URLError"
+    },
+    {
       "source": "https://www.linkedin.com/company/setlist-fm",
       "feed_url": "https://www.linkedin.com/company/setlist-fm",
       "title": "",
@@ -10,5 +21,5 @@
     }
   ],
   "post_count": 0,
-  "fetched": "2026-10-03T12:30:02Z"
+  "fetched": "2026-10-10T13:15:00Z"
 }
