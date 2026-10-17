@@ -73,40 +73,14 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    Venue:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        url:
-          type: string
-          format: uri
-        city:
-          $ref: '#/components/schemas/City'
-    Setlists:
-      type: object
-      properties:
-        setlist:
-          type: array
-          items:
-            $ref: '#/components/schemas/Setlist'
-        total:
-          type: integer
-        page:
-          type: integer
-        itemsPerPage:
-          type: integer
-    Country:
-      type: object
-      properties:
-        code:
-          type: string
-          description: The ISO code of the country.
-        name:
-          type: string
     User:
       type: object
       properties:
@@ -129,85 +103,19 @@ components:
         url:
           type: string
           format: uri
-    Set:
+    Setlists:
       type: object
       properties:
-        name:
-          type: string
-        encore:
-          type: integer
-        song:
+        setlist:
           type: array
           items:
-            $ref: '#/components/schemas/Song'
-    City:
-      type: object
-      properties:
-        id:
-          type: string
-          description: The GeoNames geoId.
-        name:
-          type: string
-        stateCode:
-          type: string
-        state:
-          type: string
-        coords:
-          $ref: '#/components/schemas/Coords'
-        country:
-          $ref: '#/components/schemas/Country'
-    Tour:
-      type: object
-      properties:
-        name:
-          type: string
-    Coords:
-      type: object
-      properties:
-        lat:
-          type: number
-          format: double
-        long:
-          type: number
-          format: double
-    Error:
-      type: object
-      properties:
-        code:
+            $ref: '#/components/schemas/Setlist'
+        total:
           type: integer
-        status:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
-    Artist:
-      type: object
-      properties:
-        mbid:
-          type: string
-          description: Unique MusicBrainz Identifier of the artist.
-        name:
-          type: string
-        sortName:
-          type: string
-        disambiguation:
-          type: string
-        url:
-          type: string
-          format: uri
-          description: The setlist.fm page of the artist.
-    Song:
-      type: object
-      properties:
-        name:
-          type: string
-        info:
-          type: string
-        cover:
-          $ref: '#/components/schemas/Artist'
-        tape:
-          type: boolean
+        page:
+          type: integer
+        itemsPerPage:
+          type: integer
     Setlist:
       type: object
       properties:
@@ -234,6 +142,72 @@ components:
         url:
           type: string
           format: uri
+    Tour:
+      type: object
+      properties:
+        name:
+          type: string
+    Venue:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+          format: uri
+        city:
+          $ref: '#/components/schemas/City'
+    Set:
+      type: object
+      properties:
+        name:
+          type: string
+        encore:
+          type: integer
+        song:
+          type: array
+          items:
+            $ref: '#/components/schemas/Song'
+    Artist:
+      type: object
+      properties:
+        mbid:
+          type: string
+          description: Unique MusicBrainz Identifier of the artist.
+        name:
+          type: string
+        sortName:
+          type: string
+        disambiguation:
+          type: string
+        url:
+          type: string
+          format: uri
+          description: The setlist.fm page of the artist.
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        status:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+    Song:
+      type: object
+      properties:
+        name:
+          type: string
+        info:
+          type: string
+        cover:
+          $ref: '#/components/schemas/Artist'
+        tape:
+          type: boolean
     Sets:
       type: object
       properties:
@@ -241,6 +215,39 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Set'
+    Country:
+      type: object
+      properties:
+        code:
+          type: string
+          description: The ISO code of the country.
+        name:
+          type: string
+    City:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The GeoNames geoId.
+        name:
+          type: string
+        stateCode:
+          type: string
+        state:
+          type: string
+        coords:
+          $ref: '#/components/schemas/Coords'
+        country:
+          $ref: '#/components/schemas/Country'
+    Coords:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: double
+        long:
+          type: number
+          format: double
   parameters:
     PageParam:
       name: p
@@ -257,13 +264,6 @@ components:
       description: The user ID.
       schema:
         type: string
-  responses:
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

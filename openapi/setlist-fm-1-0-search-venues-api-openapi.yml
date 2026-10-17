@@ -110,53 +110,47 @@ components:
         long: -118.3267434
         lat: 34.0983425
       description: Coordinates of a point on the globe. Mostly used for Cities.
-    json_Venues:
+    json_Venue:
       type: object
-      title: venues
+      title: venue
       properties:
-        venue:
-          description: result list of venues
-          type: array
-          items:
-            $ref: '#/components/schemas/json_Venue'
-        total:
-          example: 42
-          description: the total amount of items matching the query
-          type: number
-        page:
-          example: 1
-          description: the current page. starts at 1
-          type: number
-        itemsPerPage:
-          example: 20
-          description: the amount of items you get per page
-          type: number
+        city:
+          description: the city in which the venue is located
+          $ref: '#/components/schemas/json_City'
+        url:
+          example: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+          description: the attribution url
+          type: string
+        id:
+          example: 6bd6ca6e
+          description: unique identifier
+          type: string
+        name:
+          example: Compaq Center
+          description: 'the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or
+
+            <em>&quot;Royal Albert Hall&quot;</em>'
+          type: string
       example:
-        venue:
-        - city:
-            id: '5357527'
-            name: Hollywood
-            stateCode: CA
-            state: California
-            coords: {}
-            country: {}
-          url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-          id: 6bd6ca6e
-          name: Compaq Center
-        - city:
-            id: '...'
-            name: '...'
-            stateCode: '...'
-            state: '...'
-            coords: {}
-            country: {}
-          url: '...'
-          id: '...'
-          name: '...'
-        total: 42
-        page: 1
-        itemsPerPage: 20
-      description: A Result consisting of a list of venues.
+        city:
+          id: '5357527'
+          name: Hollywood
+          stateCode: CA
+          state: California
+          coords:
+            long: -118.3267434
+            lat: 34.0983425
+          country:
+            code: US
+            name: United States
+        url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+        id: 6bd6ca6e
+        name: Compaq Center
+      description: 'Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also
+
+        some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
+
+        may (but do not have to) be in the name.'
     json_City:
       type: object
       title: city
@@ -219,47 +213,53 @@ components:
       description: 'This class represents a city where Venues are located. Most of the original city data was taken from
 
         <a href="http://geonames.org/">Geonames.org</a>.'
-    json_Venue:
+    json_Venues:
       type: object
-      title: venue
+      title: venues
       properties:
-        city:
-          description: the city in which the venue is located
-          $ref: '#/components/schemas/json_City'
-        url:
-          example: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-          description: the attribution url
-          type: string
-        id:
-          example: 6bd6ca6e
-          description: unique identifier
-          type: string
-        name:
-          example: Compaq Center
-          description: 'the name of the venue, usually without city and country. E.g. <em>&quot;Madison Square Garden&quot;</em> or
-
-            <em>&quot;Royal Albert Hall&quot;</em>'
-          type: string
+        venue:
+          description: result list of venues
+          type: array
+          items:
+            $ref: '#/components/schemas/json_Venue'
+        total:
+          example: 42
+          description: the total amount of items matching the query
+          type: number
+        page:
+          example: 1
+          description: the current page. starts at 1
+          type: number
+        itemsPerPage:
+          example: 20
+          description: the amount of items you get per page
+          type: number
       example:
-        city:
-          id: '5357527'
-          name: Hollywood
-          stateCode: CA
-          state: California
-          coords:
-            long: -118.3267434
-            lat: 34.0983425
-          country:
-            code: US
-            name: United States
-        url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
-        id: 6bd6ca6e
-        name: Compaq Center
-      description: 'Venues are places where concerts take place. They usually consist of a venue name and a city - but there are also
-
-        some venues that do not have a city attached yet. In such a case, the city simply isn''t set and the city and country
-
-        may (but do not have to) be in the name.'
+        venue:
+        - city:
+            id: '5357527'
+            name: Hollywood
+            stateCode: CA
+            state: California
+            coords: {}
+            country: {}
+          url: https://www.setlist.fm/venue/compaq-center-san-jose-ca-usa-6bd6ca6e.html
+          id: 6bd6ca6e
+          name: Compaq Center
+        - city:
+            id: '...'
+            name: '...'
+            stateCode: '...'
+            state: '...'
+            coords: {}
+            country: {}
+          url: '...'
+          id: '...'
+          name: '...'
+        total: 42
+        page: 1
+        itemsPerPage: 20
+      description: A Result consisting of a list of venues.
     json_Country:
       type: object
       title: country
