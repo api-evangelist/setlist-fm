@@ -503,3 +503,9 @@ components:
         code: US
         name: United States
       description: This class represents a country on earth.
+x-provenance:
+  method: harvested
+  publisher: setlist.fm
+  source: https://api.setlist.fm/docs/1.0/ui/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

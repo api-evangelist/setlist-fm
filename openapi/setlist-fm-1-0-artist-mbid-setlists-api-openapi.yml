@@ -601,3 +601,9 @@ components:
         page: 1
         itemsPerPage: 20
       description: A Result consisting of a list of setlists.
+x-provenance:
+  method: harvested
+  publisher: setlist.fm
+  source: https://api.setlist.fm/docs/1.0/ui/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)

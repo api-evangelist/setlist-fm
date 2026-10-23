@@ -84,3 +84,9 @@ components:
         <a href="http://wiki.musicbrainz.org/MBID">Musicbrainz Identifier</a> (MBID) with which the artist can be uniquely
 
         identified.'
+x-provenance:
+  method: harvested
+  publisher: setlist.fm
+  source: https://api.setlist.fm/docs/1.0/ui/swagger.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
